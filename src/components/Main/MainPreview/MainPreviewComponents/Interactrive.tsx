@@ -5,6 +5,7 @@ import styles from '../MainPreview.module.scss';
 import Button from '@/shared/ui/Button/Button';
 import Image from 'next/image';
 import variables from '@variables';
+import { useRouter } from 'next/router';
 
 const Interactive: FC = () => {
     const [isHovered, setIsHovered] = useState(false);
