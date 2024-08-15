@@ -1,0 +1,130 @@
+@import '@variables';
+@import '@mixins';
+
+.about {
+    @include adaptiveWidth;
+
+    @media screen and (max-width: ($laptop-width - 1px)) {
+        width: 100vw;
+    }
+
+    &::before {
+        content: '';
+        display: none;
+
+        @media screen and (min-width: $tablet-width) {
+            display: block;
+            width: 300px;
+            height: 300px;
+            background-color: rgba($base-orange, 80%);
+            border-radius: 50%;
+            filter: blur(200px);
+            position: absolute;
+            top: 595px;
+            left: -96px;
+        }
+
+        @media screen and (min-width: $laptop-width) {
+            width: 600px;
+            height: 600px;
+            top: 528px;
+            left: -280px;
+        }
+
+        @media screen and (min-width: $desktop-width) {
+            width: 800px;
+            height: 880px;
+            top: 677px;
+            left: -280px;
+        }
+    }
+}
+
+.title {
+    @include title;
+    margin-bottom: 20px;
+    margin-left: 15px;
+
+    @media screen and (min-width: $tablet-width) {
+        margin-bottom: 30px;
+        margin-left: 39px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        margin-bottom: 40px;
+        margin-left: 0;
+    }
+}
+
+.aboutList {
+    display: grid;
+    grid-template-columns: repeat(3, 270px);
+    gap: 20px;
+    overflow-y: auto;
+    margin-left: 15px;
+    margin-bottom: 50px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media screen and (min-width: $tablet-width) {
+        gap: 30px;
+        grid-template-columns: repeat(3, 330px);
+        margin-left: 39px;
+        margin-bottom: 80px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        gap: 60px;
+        margin-left: 0;
+        margin-bottom: 88px;
+    }
+}
+
+.cardTitle {
+    color: $White_text_color;
+    font-size: 20px;
+    line-height: 1.445;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+
+    @media screen and (min-width: $tablet-width) {
+        font-size: 30px;
+    }
+}
+
+@keyframes ani {
+    from {
+        transform: translateY(300px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.aboutItem {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+    gap: 20px;
+}
+
+.animation {
+    @media screen and (min-width: $laptop-width) {
+        animation: ani 0.3s ease-in-out;
+    }
+}
+
+.aboutText {
+    color: $base-orange;
+    font-size: 16px;
+    line-height: 1.445;
+
+    @media screen and (min-width: $tablet-width) {
+        font-size: 25px;
+    }
+}

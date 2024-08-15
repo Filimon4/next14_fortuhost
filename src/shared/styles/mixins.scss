@@ -1,0 +1,44 @@
+@import '@variables';
+
+@mixin blurText($color: $base-white) {
+    &:hover::before {
+        color: $color;
+        top: 50%;
+        position: absolute;
+        content: attr(data-content);
+        transform: translateY(-50%);
+        filter: blur(3.5px);
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        @content;
+    }
+}
+
+@mixin adaptiveWidth {
+    width: 92vw;
+
+    @media screen and (min-width: $tablet-width) {
+        width: 89.84375vw;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        width: 1111px;
+    }
+}
+
+@mixin title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.445;
+    color: $White_text_color;
+    margin-left: 15px;
+
+    @media screen and (min-width: $tablet-width) {
+        font-size: 40px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        font-size: 50px;
+    }
+}

@@ -1,0 +1,243 @@
+@import '@variables';
+@import '@mixins';
+
+.preview {
+    color: $base-white;
+    z-index: 100;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    @include adaptiveWidth;
+
+    @media screen and (min-width: $tablet-width) {
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        margin-top: 61px;
+        height: 671px;
+        margin-bottom: 36px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        margin-top: 71px;
+        width: 1467px;
+        height: 759px;
+        margin-bottom: 88px;
+    }
+
+    &::before {
+        @media screen and (min-width: $laptop-width) {
+            position: absolute;
+            content: '';
+            z-index: 0;
+            border-radius: 50%;
+            top: -363px;
+            right: -374px;
+            width: 800px;
+            height: 800px;
+            background-color: rgba($base-orange, 50%);
+            filter: blur(200px);
+        }
+    }
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.title {
+    font-size: 28px;
+    line-height: 1.235;
+    color: $White_text_color;
+
+    @media screen and (min-width: $tablet-width) {
+        font-size: 53px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        font-size: 60px;
+        width: 721px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        font-size: 80px;
+        width: 961px;
+    }
+}
+
+.paragraph {
+    color: $dark-orange;
+    font-size: 16px;
+    line-height: 1.445;
+
+    @media screen and (min-width: $tablet-width) {
+        font-size: 30px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        width: 540px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        width: 800px;
+    }
+}
+
+.button {
+    height: 60px;
+    width: 100%;
+    margin-top: 20px;
+
+    @media screen and (min-width: $tablet-width) {
+        width: 330px;
+        height: 92px;
+        margin-top: 60px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        width: 434px;
+        height: 112px;
+        margin-top: 50px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        margin-top: 52px;
+    }
+}
+.interactive {
+    @media screen and (min-width: $tablet-width) and (max-width: ($laptop-width - 1px)) {
+        display: flex;
+        gap: 96px;
+    }
+}
+
+.laptopBox {
+    position: absolute;
+    display: none;
+    @media screen and (min-width: $tablet-width) {
+        display: block;
+        position: relative;
+    }
+}
+
+.laptop {
+    width: 227px;
+    height: 207.24px;
+    position: relative;
+
+    @media screen and (min-width: $laptop-width) {
+        position: absolute;
+        z-index: 10;
+        width: 358px;
+        height: 326.23px;
+        top: -344.26px;
+        left: 438px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        width: 452px;
+        height: 412px;
+        top: -284.26px;
+        left: 617px;
+    }
+}
+
+.laptopActive {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    width: 227px;
+    height: 207.24px;
+
+    @media screen and (min-width: $laptop-width) {
+        width: 358px;
+        height: 326.23px;
+        top: -344.26px;
+        left: 438px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        width: 452px;
+        height: 412px;
+        top: -284.26px;
+        left: 617px;
+    }
+}
+
+.leftVector {
+    display: none;
+    position: absolute;
+
+    @media screen and (min-width: $laptop-width) {
+        display: block;
+        top: -410.26px;
+        left: 760px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        top: -325.26px;
+        left: 1030px;
+    }
+}
+
+.rightVector {
+    display: none;
+    position: absolute;
+
+    @media screen and (min-width: $laptop-width) {
+        display: block;
+        left: 750px;
+        position: absolute;
+        top: -130.26px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        left: 1024px;
+        position: absolute;
+        top: -50.26px;
+    }
+}
+
+.hdd {
+    display: none;
+    position: absolute;
+
+    @media screen and (min-width: $laptop-width) {
+        width: 142px;
+        height: 260px;
+        display: block;
+        top: -633.26px;
+        left: 828px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        width: 181px;
+        height: 329px;
+        top: -603.26px;
+        left: 1100px;
+    }
+}
+
+.server {
+    display: none;
+    position: absolute;
+
+    @media screen and (min-width: $laptop-width) {
+        width: 142px;
+        height: 260px;
+        display: block;
+        top: -303.26px;
+        left: 978px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        width: 181px;
+        height: 329px;
+        top: -273.26px;
+        left: 1255px;
+    }
+}

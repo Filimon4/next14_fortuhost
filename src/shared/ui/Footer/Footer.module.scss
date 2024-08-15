@@ -1,0 +1,121 @@
+@import '@mixins';
+@import '@variables';
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include adaptiveWidth;
+    margin-bottom: 15px;
+    position: relative;
+
+    @media screen and (min-width: $tablet-width) {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+        text-align: end;
+        margin-bottom: 40px;
+    }
+
+    &::before {
+        position: absolute;
+        bottom: -49px;
+        right: -150px;
+        background-color: #ff7a00cc;
+        content: '';
+        display: block;
+        filter: blur(200px);
+        border-radius: 50%;
+
+        @media screen and (min-width: $tablet-width) {
+            width: 300px;
+            height: 300px;
+        }
+
+        @media screen and (min-width: $laptop-width) {
+            bottom: 0px;
+            right: -300px;
+        }
+
+        @media screen and (min-width: $desktop-width) {
+            width: 150px;
+            height: 150px;
+            bottom: 0px;
+            right: -300px;
+        }
+    }
+}
+
+.navigation {
+    margin-left: auto;
+    transform: translateX(-50%);
+}
+
+.navList {
+    display: none;
+
+    & > li > a {
+        text-align: start;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 35px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 296px;
+
+    & > p {
+        color: #642f00;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 25px;
+        text-align: left;
+    }
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+
+    & > .icons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        & > img {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    @media screen and (min-width: $tablet-width) {
+        margin-left: auto;
+        gap: 20px;
+    }
+}
+
+.text {
+    color: $White_text_color;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: left;
+
+    &:first-of-type {
+        width: 133px;
+    }
+
+    @media screen and (min-width: $tablet-width) {
+        text-align: start;
+    }
+}

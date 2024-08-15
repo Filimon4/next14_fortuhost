@@ -1,0 +1,25 @@
+@import '@variables';
+@import '@mixins';
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & > .text {
+        color: $White_text_color;
+        position: relative;
+
+        @include blurText;
+    }
+
+    & > .img {
+        width: 51px;
+        height: 52px;
+
+        @media screen and (min-width: $tablet-width) {
+            width: 72px;
+            height: 72px;
+        }
+    }
+}

@@ -1,0 +1,117 @@
+@import '@mixins';
+@import '@variables';
+
+.start {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+
+        @media screen and (min-width: $tablet-width) and (max-width: ($laptop-width - 1px)) {
+            right: -92px;
+            top: -72px;
+            z-index: 1000000;
+            border-radius: 50%;
+            width: 300px;
+            height: 300px;
+            background-color: rgba($base-orange, 50%);
+            filter: blur(200px);
+        }
+    }
+
+    &::before {
+        content: '';
+        top: 658px;
+        left: 0;
+        width: 100vw;
+        height: calc(234.8vw - 658px);
+        display: block;
+        z-index: 1000;
+        position: absolute;
+        background-color: #000000;
+
+        @media screen and (min-width: $tablet-width) {
+            top: 874px;
+            height: calc(111.2vw - 774px);
+        }
+
+        @media screen and (min-width: $laptop-width) {
+            top: 641px;
+            height: calc(100vw - 601px);
+        }
+    }
+}
+
+@keyframes ani {
+    from {
+        transform: translateY(670px) rotate(90deg);
+    }
+    to {
+        transform: translateY(0) rotate(90deg);
+    }
+}
+
+.triangle {
+    border-top: 234.8vw solid #ff7900;
+    border-left: 11vw solid transparent;
+    transform: rotate(90deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 164.8vw;
+    height: 0;
+
+    @media screen and (min-width: $tablet-width) {
+        border-left: 9vw solid transparent;
+        width: 111.2vw;
+        border-top: 111.2vw solid #ff7900;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        border-left: 6vw solid transparent;
+        width: 100vw;
+        border-top: 100vw solid #ff7900;
+    }
+}
+
+.animation {
+    @media screen and (min-width: $laptop-width) {
+        animation: ani 0.5s ease-in;
+    }
+}
+
+.box {
+    @include adaptiveWidth;
+    z-index: 10;
+}
+
+.title {
+    @include title;
+    z-index: 1;
+    font-size: 50px;
+}
+
+.list {
+    margin: 40px 0 25px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    @media screen and (min-width: $tablet-width) {
+        margin: 40px 0;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        display: grid;
+        grid-template-columns: repeat(2, 540px);
+        gap: 30px;
+    }
+}

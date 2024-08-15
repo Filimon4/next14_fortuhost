@@ -1,0 +1,19 @@
+@import '@variables';
+
+.box {
+    background-color: #000000;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

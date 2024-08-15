@@ -1,0 +1,14 @@
+$White_text_color: #fff4ea;
+$base-white: #fff;
+$base-orange: #ff7a00;
+$dark-orange: #ff7900;
+$base-yellow: #ffc700;
+$mobile-width: 375px;
+$tablet-width: 768px;
+$laptop-width: 1120px;
+$desktop-width: 1920px;
+
+:export {
+    baseOrange: $base-orange;
+    baseYellow: $base-yellow;
+}

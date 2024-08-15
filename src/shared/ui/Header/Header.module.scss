@@ -1,0 +1,111 @@
+@import '@variables';
+@import '@mixins';
+
+.header {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 44px;
+    position: relative;
+    box-sizing: content-box;
+    z-index: 10000000;
+
+    @media screen and (min-width: $tablet-width) {
+        margin-top: 50px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        margin-top: 19px;
+    }
+
+    & > .box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 92vw;
+
+        @include adaptiveWidth;
+    }
+}
+
+.tabletBurger {
+    cursor: pointer;
+    background-color: transparent;
+    display: none;
+    width: 70px;
+    aspect-ratio: 1;
+
+    @media screen and (min-width: $tablet-width) and (max-width: ($laptop-width - 1px)) {
+        display: block;
+    }
+
+    &:hover,
+    &:focus {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
+
+.mobileBurger {
+    width: 50px;
+    aspect-ratio: 1;
+    cursor: pointer;
+    background-color: transparent;
+    display: block;
+
+    @media screen and (min-width: ($tablet-width - 1px)) {
+        display: none;
+    }
+}
+
+.navList {
+    @media screen and (min-width: $laptop-width) {
+        display: flex;
+        align-items: center;
+        gap: 65px;
+    }
+    display: none;
+}
+
+.mobileNavList {
+    z-index: 100;
+    top: 93px;
+    left: 0;
+    width: 100vw;
+    background-color: #707070fc;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 0;
+    border-radius: 20px;
+
+    @media screen and (min-width: $tablet-width) {
+        top: 123px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        display: none;
+    }
+}
+
+.navItem {
+    width: 100%;
+}
+
+.navLink {
+    color: $White_text_color;
+    position: relative;
+    width: 100%;
+    display: block;
+    text-align: center;
+    @include blurText;
+
+    @media screen and (min-width: $laptop-width) {
+        width: auto;
+    }
+}

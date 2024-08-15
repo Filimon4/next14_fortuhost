@@ -1,0 +1,343 @@
+@import '@mixins';
+@import '@variables';
+
+.register {
+    @include adaptiveWidth;
+    opacity: 0.8;
+
+    outline: 15px rgba(#ffc700, 4%) solid;
+
+    height: 904px;
+    box-sizing: border-box;
+    border: 3px solid $base-orange;
+    border-radius: 20px;
+    z-index: 10000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    height: 554px;
+
+    @media screen and (min-width: $tablet-width) {
+        height: 740px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        width: 100%;
+        margin-bottom: 88px;
+        height: 900px;
+    }
+
+    @media screen and (min-width: $desktop-width) {
+        width: 1520px;
+        margin-bottom: 176px;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/icons/bee-frame.png') center center no-repeat,
+            linear-gradient(109.22deg, rgba(255, 122, 0, 0.4) 5.99%, rgba(255, 122, 0, 0.1) 87.96%);
+        background-size: cover;
+        z-index: -1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/icons/code.png') center center no-repeat;
+        background-size: cover;
+        filter: blur(5px);
+        z-index: -2;
+        opacity: 0.8;
+    }
+}
+
+.form {
+    display: flex;
+    margin-top: 25px;
+
+    @media screen and (min-width: $tablet-width) {
+        margin-top: 40px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        width: 1110px;
+        margin-top: 88px;
+        gap: 60px;
+    }
+}
+
+.circle {
+    display: block;
+    position: absolute;
+    z-index: 10000000;
+    border-radius: 50%;
+    background-color: rgba($base-orange, 50%);
+    filter: blur(200px);
+
+    @media screen and (min-width: $laptop-width) {
+        width: 500px;
+        height: 500px;
+        top: 2883px;
+        left: -155px;
+    }
+}
+
+.title {
+    @include title;
+    margin-bottom: 40px;
+
+    @media screen and (min-width: $tablet-width) and (max-width: ($laptop-width - 1px)) {
+        font-size: 30px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        align-self: flex-start;
+        margin-bottom: 60px;
+        font-size: 45px;
+    }
+}
+
+.description {
+    display: none;
+
+    @media screen and (min-width: $laptop-width) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 510px;
+        height: 296px;
+        background-color: #000000cc;
+        border-radius: 20px;
+        margin-top: 132px;
+    }
+
+    & > p {
+        display: none;
+        display: block;
+        @media screen and (min-width: $laptop-width) {
+            color: $White_text_color;
+            font-size: 25px;
+            font-weight: 400;
+            line-height: 36.13px;
+            width: 424px;
+            height: 216px;
+            text-align: start;
+            margin-left: 43px;
+        }
+    }
+}
+
+.inputList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: calc(100vw - 69px);
+    padding: 0 20px;
+    text-align: center;
+    white-space: nowrap;
+
+    @media screen and (min-width: $tablet-width) {
+        width: 540px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        gap: 6px;
+    }
+}
+
+.inputBox {
+    width: 100%;
+    height: 70px;
+
+    @media screen and (min-width: $tablet-width) {
+        height: 84px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        height: 104px;
+    }
+}
+
+.input {
+    height: 50px;
+    border: 3px solid $base-orange;
+    border-radius: 20px;
+    background-color: #000000;
+    color: #999595;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    width: 100%;
+    padding: 10px 20px;
+    outline: 5px solid rgba($base-yellow, 0.1);
+
+    @media screen and (min-width: $tablet-width) {
+        height: 60px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        height: 80px;
+    }
+}
+
+.btn {
+    margin-top: 10px;
+    height: 60px;
+    width: 100%;
+
+    @media screen and (min-width: $tablet-width) {
+        margin-top: 20px;
+        height: 80px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        margin-top: 16px;
+    }
+
+    background-color: $base-orange;
+    background-image: linear-gradient($base-yellow, $base-yellow);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0% 0%;
+    transition: background-size 0.1s, color 0.1s;
+
+    &:not(:disabled):hover {
+        background-color: $base-orange;
+        background-size: 100% 100%;
+    }
+}
+
+.checkboxBox {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    align-items: center;
+    text-align: start;
+    position: relative;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkboxLabel {
+    color: $White_text_color;
+    white-space: wrap;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 15px;
+    margin-left: 34px;
+    user-select: none;
+    margin-top: 20px;
+
+    @media screen and (min-width: $tablet-width) {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21px;
+        margin-left: 40px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21px;
+        margin-left: 48px;
+    }
+
+    &::before {
+        position: absolute;
+        left: 0;
+        content: '';
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        border: 2px solid $base-orange;
+        border-radius: 10px;
+        padding: 1.67px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (min-width: $tablet-width) {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
+
+.checkbox:checked + .checkboxLabel::before {
+    content: url('/icons/register/check.svg');
+}
+
+.invalidInput {
+    border: #ff0000 3px solid;
+    outline: rgba(#ff0000, 0.1) 5px solid;
+}
+
+.validText {
+    margin-top: 4px;
+    color: #ff0000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.23px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.descriptionAny {
+    height: min-content;
+    min-height: 135px;
+    @include adaptiveWidth;
+    background-color: #70707080;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @media screen and (min-width: $tablet-width) {
+        margin-bottom: 80px;
+    }
+
+    @media screen and (min-width: $laptop-width) {
+        display: none;
+    }
+
+    & > p {
+        color: $White_text_color;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 23.12px;
+        padding: 10px 20px;
+
+        @media screen and (min-width: $tablet-width) {
+            padding: 20px 43px;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 28.9px;
+        }
+
+        @media screen and (min-width: $laptop-width) {
+            display: none;
+        }
+    }
+}
+
+.login {
+    margin-top: 10px;
+    color: $base-white;
+    text-decoration: underline;
+    cursor: pointer;
+}
