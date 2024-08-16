@@ -5,16 +5,22 @@ import styles from '../MainPreview.module.scss';
 import Button from '@/shared/ui/Button/Button';
 import Image from 'next/image';
 import variables from '@variables';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const Interactive: FC = () => {
+    const router = useRouter()
     const [isHovered, setIsHovered] = useState(false);
+
+    const onButtonClick = () => {
+        router.push('dashboard')
+    }
 
     return (
         <article className={styles.interactive}>
             <Button
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
+                onClick={onButtonClick}
                 className={styles.button}>
                 Добавить приложение
             </Button>

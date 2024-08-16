@@ -1,0 +1,15 @@
+@import "@variables";
+
+.dashboard_main {
+  height: 100vh;
+  width: 100vw;
+  background: url('/icons/dashboard-bee-frame.png') center center no-repeat;
+  background-color: $dashboard-background-color;
+}
+
+.dashboard_projects {
+  height: 100%;
+  width: 100%;
+  padding-top: 4rem;
+  padding-inline: 11rem;
+}

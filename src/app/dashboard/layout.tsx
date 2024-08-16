@@ -1,9 +1,17 @@
 import React from 'react'
 
-const Dashboard = () => {
+import styles from "./Dashboard.module.scss";
+
+const DashboardLayout = ({
+  children
+}: {
+  children: React.ReactNode
+}) => {
   return (
-    <div>Dashboard</div>
+    <div className={styles.dashboard_main}>
+      {children}
+    </div>
   )
 }
 
-export default Dashboard
+export default DashboardLayout

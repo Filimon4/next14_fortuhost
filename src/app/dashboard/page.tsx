@@ -1,0 +1,16 @@
+import React from 'react'
+
+import styles from "./Dashboard.module.scss";
+import BoardTitle from '@/components/Dashboard/PreviewBoard/BoardTitle';
+import BoardProject from '@/components/Dashboard/ProjectBoard/BoardProject';
+
+const Dashboard = () => {
+  return (
+    <section className={styles.dashboard_projects}>
+      <BoardTitle />
+      <BoardProject />
+    </section>
+  )
+}
+
+export default Dashboard

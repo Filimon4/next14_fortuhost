@@ -7,19 +7,17 @@ import Footer from '@/shared/ui/Footer/Footer';
 
 const Home = () => {
     return (
-        <RootLayout>
-            <div className={styles.box}>
-                <Header />
-                <main className={styles.main}>
-                    <MainPreview />
-                    <About />
-                    <Start />
-                    <Tariffs />
-                    <Register />
-                </main>
-                <Footer />
-            </div>
-        </RootLayout>
+        <div className={styles.box}>
+            <Header />
+            <main className={styles.main}>
+                <MainPreview />
+                <About />
+                <Start />
+                <Tariffs />
+                <Register />
+            </main>
+            <Footer />
+        </div>
     );
 };
 
