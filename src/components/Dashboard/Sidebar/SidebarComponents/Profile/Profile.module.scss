@@ -1,0 +1,78 @@
+@import '@variables';
+@import '@mixins';
+
+.profile_hide {
+  @include sidebar_container;
+  padding-block: 15px;
+  
+  display: flex;
+  flex-direction: column;
+  
+  .profile {
+    padding-inline: 1rem;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.sidebar_profile {
+  @include sidebar_container;
+  padding-block: 15px;
+  
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  
+  .profile {
+    padding-inline: 1rem;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .profile_data {
+    p {
+      line-height: 23px;
+      font-weight: 700;
+    }
+  }
+
+  .profile_open_options {
+    margin-left: 15px;
+  }
+
+  .prfile_options {
+    padding-top: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    
+    gap: 10px;
+
+    article {
+      width: 100%;
+      padding-inline: 1rem;
+      padding-top: 5px;
+      
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 15px;
+      
+      border-top:1px solid #707070 ;
+    }
+  }
+}
+
+
+
+.sibebar_profile_open {
+  padding-bottom: 0px;
+}

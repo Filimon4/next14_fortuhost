@@ -1,0 +1,124 @@
+@import '@variables';
+@import '@mixins';
+
+.tariff_deadline_hide {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tariff_title_hide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar_tariff_hide {
+  @include sidebar_container;
+  padding: 15px;
+  width: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.sidebar_tariff {
+  @include sidebar_container;
+  padding: 15px;
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+  & > .tariff_title {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+
+  & > .tariff_plan_name {
+    padding-top: 5px;
+
+    p { 
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  & > .tariff_process {
+    padding-top: 15px;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-size: 16px;
+      color: $base-orange;
+    }
+
+    & > .process_bar_container {
+      margin-inline: 5px;
+      
+      display: flex;
+      justify-content: start;
+
+      height: 14px;
+      width: 100%;
+      background-color: transparent;
+      border-radius: 10px;
+      border: 1px solid #1E1E1E;
+
+      & > .process_bar {
+        background-color: $dark-orange;
+        height: 100%;
+        width: 70%;
+        border-radius: inherit;
+      }
+    }
+  }
+
+  & > .tariff_deadline {
+    padding-top: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      
+      span {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  & > .tariff_plan {
+    @include attachable_text;
+    padding-top: 15px;
+
+    font-size: 16px;
+    
+  }
+}

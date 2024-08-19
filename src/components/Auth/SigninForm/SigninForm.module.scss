@@ -1,0 +1,41 @@
+@import "@variables";
+@import "@mixins";
+
+.signin_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.form_submit {
+  margin-top: 20px;
+  width: 100%;
+  background-color: $dark-orange;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.form_unit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+  color: $auht-text;
+}
+
+.form_input {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: transparent;
+  border: 3px solid $dark-orange;
+  border-radius: 10px;
+  font-weight: 700;
+  color: white;
+}

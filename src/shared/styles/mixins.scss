@@ -42,3 +42,46 @@
         font-size: 50px;
     }
 }
+
+@mixin sidebar_container {
+    color: $base-white;
+
+    border: 2px solid $base-orange;
+    border-radius: 20px;
+}
+
+@mixin sidebar_unit {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    align-items: center;
+
+    height: 44px;
+
+    padding-left: 1.5rem;
+
+    color: $White_text_color;
+
+    &:hover {
+        background-color: #1E1E1E;
+    }
+}
+
+@mixin attachable_text {
+    line-height: 14.12px;
+    letter-spacing: 2.5%;
+    color: $dark-orange;
+    border-bottom: 1px solid $dark-orange;
+}
+
+
+@mixin auth {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $auth-background-color;
+}

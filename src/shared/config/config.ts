@@ -75,4 +75,41 @@ export const RegisterConfig = {
     ],
 };
 
+export const OAuthTypes = {
+    list: [
+        {img: '/auth/yandex.svg', label: 'yandex'},
+        {img: '/auth/google.svg', label: 'google'},
+        {img: '/auth/github.svg', label: 'github'},
+        {img: '/auth/vk.svg', label: 'vk'},
+    ]
+}
+
+export const SignInConfig = {
+    field: [
+        {type: 'public', label: 'Email', placeholder: 'Anymail@mail.com'},
+        {type: 'private', label: 'Password', placeholder: ''}
+    ]
+}
+
+export const SignUpConfig = {
+    field: [
+        {type: 'public', label: 'Email', placeholder: 'Anymail@mail.com'},
+        {type: 'private', label: 'Password', placeholder: ''},
+        {type: 'private', label: 'Repeat Password', placeholder: ''}
+    ]
+}
+
+export const SidebarConfig = {
+    panel: [
+        {img: '/icons/dashboard/sidebar/home.svg', text: 'Мои проекты'},
+        {img: '/icons/dashboard/sidebar/panel.svg', text: 'Панель управления'},
+        {img: '/icons/dashboard/sidebar/bank_card.svg', text: 'Счет'},
+    ],
+    settings: [
+        {img: '/icons/dashboard/sidebar/settings.svg', text: 'Настройки'},
+        {img: '/icons/dashboard/sidebar/chat.svg', text: 'Поддержка'},
+        {img: '/icons/dashboard/sidebar/question.svg', text: 'FAQ'},
+    ]
+}
+
 export const BASE_URL = 'http://62.183.54.247:8000'

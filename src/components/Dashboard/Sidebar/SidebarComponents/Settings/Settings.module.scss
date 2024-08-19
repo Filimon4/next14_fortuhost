@@ -1,0 +1,25 @@
+@import '@variables';
+@import '@mixins';
+
+.sidebar_settings {
+  width: 100%;
+  article {
+    @include sidebar_unit;
+
+    p {
+      font-size: 16px;
+    }
+
+  }
+}
+
+.sidebar_settings_hide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  article {
+    padding-left: 0;
+  }
+}

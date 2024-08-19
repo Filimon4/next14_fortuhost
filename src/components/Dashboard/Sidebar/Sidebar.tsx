@@ -1,49 +1,35 @@
-import React from 'react'
+'use client';
 
+import React, { useState } from 'react'
+import cn from 'classnames'
 import styles from "./Sidebar.module.scss";
 import Image from 'next/image';
+import Profile from './SidebarComponents/Profile';
+import TariffPlan from './SidebarComponents/TariffPlan';
+import Panel from './SidebarComponents/Panel';
+import Settings from './SidebarComponents/Settings';
+import Logo from './SidebarComponents/Logo';
+
 
 const Sidebar = () => {
-  return (
-    <div className={styles.sidebar}>
-      <div className={styles.sidebar_logo}>
-          <Image src={'/icons/dashboard/sidebar/logo.svg'} alt='' width={35} height={35} />
+  const [sidebarHover, setSidebarHover] = useState(false);
 
-      </div>
+  return (
+    <div
+      className={cn(styles.sidebar, {[styles.sidebar_hide]: sidebarHover == false})}
+      onMouseEnter={e => {
+        setSidebarHover(true)
+      }}
+      onMouseLeave={e => {
+        setSidebarHover(false)
+      }}
+    >
+      <Logo hideMode={sidebarHover} />
       <div className={styles.sidebar_main}>
-        <div className={styles.sidebar_profile}>
-        </div>
-        <section className={styles.sidebar_panel}>
-          <article>
-              <Image src={'/icons/dashboard/sidebar/house.svg'} alt='' width={24} height={24}/>
-              <p>Мои проекты</p>
-          </article>
-          <article>
-              <Image src={'/icons/dashboard/sidebar/panel.svg'} alt='' width={24} height={24}/>
-              <p>Панель управления</p>
-          </article>
-          <article>
-              <Image src={'/icons/dashboard/sidebar/bank_card.svg'} alt='' width={24} height={24}/>
-              <p>Счет</p>
-          </article>
-        </section>
-        <div className={styles.sidebar_plan}>
-          plan
-        </div>
-        <section className={styles.sidebar_settings}>
-          <article>
-              <Image src={'/icons/dashboard/sidebar/settings.svg'} width={24} height={24} alt=''/>
-              <p>Настройки</p>
-          </article>
-          <article>
-              <Image src={'/icons/dashboard/sidebar/chat.svg'} width={24} height={24} alt=''/>
-              <p>Поддержка</p>
-          </article>
-          <article>
-              <Image src={'/icons/dashboard/sidebar/question.svg'} width={24} height={24} alt=''/>
-              <p>FAQ</p>
-          </article>
-        </section>
+        <Profile hideMode={sidebarHover} />
+        <Panel hideMode={sidebarHover} />
+        <TariffPlan hideMode={sidebarHover} />
+        <Settings hideMode={sidebarHover} />
       </div>
     </div>
   )

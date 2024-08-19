@@ -3,7 +3,8 @@ export enum RouteConfig {
     CONTROL = '/control',
     DOCS = '/docs',
     HELP = '/help',
-    LOGIN = '#register',
+    LOGIN = '/signin',
+    REGISTRATION = '/signup'
 }
 
 export const AppRoute = {
