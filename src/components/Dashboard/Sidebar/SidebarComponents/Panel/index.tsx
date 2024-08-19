@@ -13,7 +13,7 @@ const Panel = ({hideMode}: {hideMode: boolean}) => {
   return (
     <section className={cn(styles.sidebar_panel, {[styles.sidebar_panel_hide]: hideMode == false})}>
       {SidebarConfig.panel.map((field, indx) => (
-        <article>
+        <article key={indx}>
             <Image src={field.img} alt='' width={24} height={24}/>
             {hideMode && <>
               <p>{field.text}</p>

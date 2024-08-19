@@ -10,7 +10,7 @@ const Settings = ({hideMode}: {hideMode: boolean}) => {
   return (
     <section className={cn(styles.sidebar_settings, {[styles.sidebar_settings_hide]: hideMode == false})}>
       {SidebarConfig.settings.map((field, indx) => (
-        <article>
+        <article key={indx}>
             <Image src={field.img} width={24} height={24} alt=''/>
             {hideMode && <>
               <p>{field.text}</p>
