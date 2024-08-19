@@ -22,16 +22,15 @@ const Register: FC = () => {
         mutationFn: (user: { email: string; password: string; confirm_password?: string }) => {
             return axios.post(`${BASE_URL}'/api/auth/'${isLogin ? 'login' : 'register'}`, user);
         },
+        onSuccess: () => {
+            sessionStorage.setItem('authInfo', mutation.data?.data);
+        }
     });
     const { errors, validateInput, getError } = useAuthValidation(
         { email, password, confirmPassword },
         regSchema,
         error,
     );
-
-    if (mutation.isSuccess) {
-        sessionStorage.setItem('authInfo', mutation.data?.data.data);
-    }
 
     useEffect(() => {
         if (mutation.data?.data.error) setError({ type: 'email', text: mutation.data?.data.error });

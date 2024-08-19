@@ -8,6 +8,8 @@ import styles from './Panel.module.scss'
 import { SidebarConfig } from '@/shared/config/config';
 
 const Panel = ({hideMode}: {hideMode: boolean}) => {
+  
+  
   return (
     <section className={cn(styles.sidebar_panel, {[styles.sidebar_panel_hide]: hideMode == false})}>
       {SidebarConfig.panel.map((field, indx) => (

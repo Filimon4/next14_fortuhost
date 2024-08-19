@@ -1,31 +1,53 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
 
 import styles from './SignupForm.module.scss'
 
-import { SignUpConfig } from '@/shared/config/config'
+import { BASE_URL, SignUpConfig } from '@/shared/config/config'
 import useAuthValidation from '@/shared/hooks/useValidationForm'
 import { regSchema, TErrorMessage } from '@/shared/models/registrationConfig'
+import axios from 'axios'
+import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
+import { RouteConfig } from '@/shared/config/navigation'
+import InputPassword from '@/shared/ui/InputPassword/InputPassword'
 
 const SignupForm = () => {
+  const router = useRouter()
 
-  const [signupData, setSignupData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: ''
-  })
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState<TErrorMessage | undefined>()
+
+  const mutationReg = useMutation({
+      mutationFn: (user: { email: string; password: string; confirmPassword?: string }) => {
+          return axios.post(`${BASE_URL}'/api/auth/register`, user);
+      },
+      onSuccess: (data, variables, context) => {
+        sessionStorage.setItem('auhtInfo', mutationReg.data?.data)
+        router.push(RouteConfig.DASHBOARD)
+      }
+  });
+
+  console.log(mutationReg.data)
 
   const onSubmitSignin = (e: any) => {
     e.preventDefault()
-    setSignupData({email: '', password: '', confirmPassword: ''})
-    console.log(e)
+    mutationReg.mutate({
+      email,
+      password,
+      confirmPassword
+    })
+    setEmail('')
+    setPassword('')
+    setConfirmPassword('')
   }
 
   const { errors, validateInput, getError } = useAuthValidation(
-    { email: signupData.email, password: signupData.password, confirmPassword: signupData.confirmPassword },
+    { email, password, confirmPassword },
     regSchema,
     error
   )
@@ -40,9 +62,9 @@ const SignupForm = () => {
           })}
           type='text'
           placeholder="anymail@mail.com"
-          value={signupData.email}
+          value={email}
           onChange={(i: React.ChangeEvent<HTMLInputElement>) => {
-            setSignupData({...signupData, email: i.target.value})
+            setEmail(i.target.value)
             validateInput('email', i.target.value),
             setError(undefined)
           }}
@@ -53,18 +75,14 @@ const SignupForm = () => {
       </div>
       <div className={styles.form_unit}>
         <label>Password</label>
-        <input
-          className={cn(styles.form_input, {
-            [styles.form_invalidinput]: !!getError('password')
-          })}
-          type='text'
-          placeholder=""
-          value={signupData.password}
-          onChange={(i: React.ChangeEvent<HTMLInputElement>) => {
-            setSignupData({...signupData, password: i.target.value})
-            validateInput('password', i.target.value)
+        <InputPassword
+          value={password}
+          setValue={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setPassword(e.target.value)
+            validateInput('password', e.target.value)
             setError(undefined)
           }}
+          error={!!getError('password')}
         />
         {!!getError('password') && <>
           <p className={styles.form_invalidtext}>{getError('password')}</p>
@@ -72,18 +90,14 @@ const SignupForm = () => {
       </div>
       <div className={styles.form_unit}>
         <label>Repeat password</label>
-        <input
-          className={cn(styles.form_input, {
-            [styles.form_invalidinput]: !!getError('confirmPassword')
-          })}
-          type='text'
-          placeholder=""
-          value={signupData.confirmPassword}
-          onChange={(i: React.ChangeEvent<HTMLInputElement>) => {
-            setSignupData({...signupData, confirmPassword: i.target.value})
-            validateInput('confirmPassword', i.target.value)
+        <InputPassword
+          value={confirmPassword}
+          setValue={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setConfirmPassword(e.target.value)
+            validateInput('confirmPassword', e.target.value)
             setError(undefined)
           }}
+          error={!!getError('confirmPassword')}
         />
         {!!getError('confirmPassword') && <>
           <p className={styles.form_invalidtext}>{getError('confirmPassword')}</p>
@@ -93,9 +107,9 @@ const SignupForm = () => {
         className={styles.form_submit}
         disabled={
           !!errors.length ||
-          !signupData.email ||
-          !signupData.password ||
-          !signupData.confirmPassword
+          !email ||
+          !password ||
+          !confirmPassword
         }
       >
         Зарегистрироваться

@@ -101,9 +101,9 @@ export const SignUpConfig = {
 
 export const SidebarConfig = {
     panel: [
-        {img: '/icons/dashboard/sidebar/home.svg', text: 'Мои проекты'},
-        {img: '/icons/dashboard/sidebar/panel.svg', text: 'Панель управления'},
-        {img: '/icons/dashboard/sidebar/bank_card.svg', text: 'Счет'},
+        {img: '/icons/dashboard/sidebar/house.svg', text: 'Мои проекты', hover: '/icons/dashboard/sidebar/house_light.svg'},
+        {img: '/icons/dashboard/sidebar/panel.svg', text: 'Панель управления', hover: '/icons/dashboard/sidebar/panel_light.svg'},
+        {img: '/icons/dashboard/sidebar/card.svg', text: 'Счет', hover: '/icons/dashboard/sidebar/card_light.svg'},
     ],
     settings: [
         {img: '/icons/dashboard/sidebar/settings.svg', text: 'Настройки'},
