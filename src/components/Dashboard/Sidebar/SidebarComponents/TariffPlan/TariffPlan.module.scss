@@ -1,6 +1,11 @@
 @import '@variables';
 @import '@mixins';
 
+.sidebar_tariff {
+  height: 100px;
+  width: 95%;
+}
+
 .tariff_deadline_hide {
   padding-top: 5px;
   display: flex;
@@ -17,10 +22,9 @@
   align-items: center;
 }
 
-.sidebar_tariff_hide {
+.tariff_hide {
   @include sidebar_container;
   padding: 15px;
-  width: fit-content;
 
   display: flex;
   flex-direction: column;
@@ -28,7 +32,7 @@
   align-items: start;
 }
 
-.sidebar_tariff {
+.tariff_open {
   @include sidebar_container;
   padding: 15px;
   width: 90%;
@@ -37,6 +41,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
+
+  white-space: nowrap;
+  overflow: hidden;
 
   & > .tariff_title {
     width: 100%;

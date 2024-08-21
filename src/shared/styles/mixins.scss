@@ -48,6 +48,7 @@
 
     border: 2px solid $base-orange;
     border-radius: 20px;
+
 }
 
 @mixin sidebar_unit {
@@ -58,13 +59,7 @@
 
     height: 44px;
 
-    padding-left: 1.5rem;
-
     color: $White_text_color;
-
-    &:hover {
-        background-color: #1E1E1E;
-    }
 }
 
 @mixin attachable_text {
@@ -72,6 +67,11 @@
     letter-spacing: 2.5%;
     color: $dark-orange;
     border-bottom: 1px solid $dark-orange;
+
+    &:hover {
+        color: $base-yellow;
+        border-bottom: 1px solid $base-yellow;    
+    }
 }
 
 

@@ -1,24 +1,18 @@
 import React from 'react'
-
+import Image from 'next/image'
 import cn from 'classnames';
 
-import Image from 'next/image'
-
 import styles from './Panel.module.scss'
+
 import { SidebarConfig } from '@/shared/config/config';
+import SidebarField from '@/shared/ui/SidebarField/SidebarField';
 
 const Panel = ({hideMode}: {hideMode: boolean}) => {
-  
   
   return (
     <section className={cn(styles.sidebar_panel, {[styles.sidebar_panel_hide]: hideMode == false})}>
       {SidebarConfig.panel.map((field, indx) => (
-        <article key={indx}>
-            <Image src={field.img} alt='' width={24} height={24}/>
-            {hideMode && <>
-              <p>{field.text}</p>
-            </>}
-        </article>
+        <SidebarField field={field} hideMode={hideMode} indx={indx} />
       ))}
     </section>
   )

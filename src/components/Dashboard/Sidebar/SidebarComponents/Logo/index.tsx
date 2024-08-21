@@ -4,17 +4,26 @@ import Image from 'next/image';
 import { Audiowide } from 'next/font/google';
 
 import styles from './Logo.module.scss'
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
 const Logo = ({hideMode}: {hideMode: boolean}) => {
+  
+  useGSAP(() => {
+    if (hideMode == true) {
+      gsap.fromTo('#logo_text', {opacity: 0}, {opacity: 1, delay: 0.05, duration: 0.12})
+    }
+  }, [hideMode])
+
   return (
     <div className={styles.sidebar_logo}>
         <div className={styles.logo_img}>
           <Image src={'/icons/dashboard/sidebar/logo.svg'} alt='' width={35} height={35} />
         </div>
         {hideMode && <>
-          <span className={cn(styles.sidebar_text, audiowide.className)}>
+          <span id='logo_text' className={cn(styles.sidebar_text, audiowide.className)}>
               FortuHost
           </span>
         </>}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import cn from 'classnames'
 import styles from "./Sidebar.module.scss";
 import Image from 'next/image';
@@ -10,14 +10,16 @@ import Panel from './SidebarComponents/Panel';
 import Settings from './SidebarComponents/Settings';
 import Logo from './SidebarComponents/Logo';
 
-
 const Sidebar = () => {
   const [sidebarHover, setSidebarHover] = useState(false);
+  const sidebarRef = useRef(null);
 
   return (
     <div
-      className={cn(styles.sidebar, {[styles.sidebar_hide]: sidebarHover == false})}
-      onMouseEnter={e => {
+    ref={sidebarRef}
+    id='sidebar'
+    className={cn(styles.sidebar, {[styles.sidebar_hide]: sidebarHover == false})}
+    onMouseEnter={e => {
         setSidebarHover(true)
       }}
       onMouseLeave={e => {

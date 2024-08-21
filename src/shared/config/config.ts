@@ -101,14 +101,23 @@ export const SignUpConfig = {
 
 export const SidebarConfig = {
     panel: [
-        {img: '/icons/dashboard/sidebar/house.svg', text: 'Мои проекты', hover: '/icons/dashboard/sidebar/house_light.svg'},
-        {img: '/icons/dashboard/sidebar/panel.svg', text: 'Панель управления', hover: '/icons/dashboard/sidebar/panel_light.svg'},
-        {img: '/icons/dashboard/sidebar/card.svg', text: 'Счет', hover: '/icons/dashboard/sidebar/card_light.svg'},
+        {img: '/icons/dashboard/sidebar/house.svg', imgSize: 24, text: 'Мои проекты', hover: '/icons/dashboard/sidebar/house_light.svg', hoverSize: 24},
+        {img: '/icons/dashboard/sidebar/panel.svg', imgSize: 24, text: 'Панель управления', hover: '/icons/dashboard/sidebar/panel_light.svg', hoverSize: 28},
+        {img: '/icons/dashboard/sidebar/card.svg', imgSize: 24, text: 'Счет', hover: '/icons/dashboard/sidebar/card_light.svg', hoverSize: 32},
     ],
     settings: [
-        {img: '/icons/dashboard/sidebar/settings.svg', text: 'Настройки'},
-        {img: '/icons/dashboard/sidebar/chat.svg', text: 'Поддержка'},
-        {img: '/icons/dashboard/sidebar/question.svg', text: 'FAQ'},
+        {img: '/icons/dashboard/sidebar/settings.svg', imgSize: 24, text: 'Настройки', hover: '/icons/dashboard/sidebar/settings_light.svg', hoverSize: 32},
+        {img: '/icons/dashboard/sidebar/chat.svg', imgSize: 24, text: 'Поддержка', hover: '/icons/dashboard/sidebar/chat_light.svg', hoverSize: 32},
+        {img: '/icons/dashboard/sidebar/question.svg', imgSize: 24, text: 'FAQ', hover: '/icons/dashboard/sidebar/question_light.svg', hoverSize: 32},
+    ]
+}
+
+export const ProjetCreateConfig = {
+    field: [
+        {type: "text", placeholder: 'Имя проекта', label: ''},
+        {type: "range", min: 1, max: 32, label: 'RAM', prefix: 'Gb'},
+        {type: "range", min: 1, max: 32, label: 'SSD', prefix: 'Gb'},
+        {type: "range", min: 1, max: 32, label: 'Core'},
     ]
 }
 

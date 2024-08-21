@@ -1,6 +1,15 @@
 @import '@variables';
 @import '@mixins';
 
+.sidebar_profile {
+  width: 95%;
+  height: 50px;
+} 
+
+.profile_options_bottom {
+  padding-bottom: 0px;
+}
+
 .profile_hide {
   @include sidebar_container;
   padding-block: 15px;
@@ -13,19 +22,13 @@
     
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     gap: 10px;
   }
 }
 
-.sidebar_profile {
-  @include sidebar_container;
-  padding-block: 15px;
-  
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  
+.profile_open {
+
   .profile {
     padding-inline: 1rem;
     
@@ -37,6 +40,8 @@
 
   .profile_data {
     p {
+      white-space: nowrap;
+      overflow: hidden;
       line-height: 23px;
       font-weight: 700;
     }
@@ -67,12 +72,11 @@
       gap: 15px;
       
       border-top:1px solid #707070 ;
+
+      white-space: nowrap;
+      overflow: hidden;
     }
   }
 }
 
 
-
-.sibebar_profile_open {
-  padding-bottom: 0px;
-}
