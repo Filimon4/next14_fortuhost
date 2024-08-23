@@ -4,6 +4,7 @@
 .sidebar_tariff {
   height: 100px;
   width: 95%;
+  margin-left: 6px;
 }
 
 .tariff_deadline_hide {
@@ -34,7 +35,7 @@
 
 .tariff_open {
   @include sidebar_container;
-  padding: 15px;
+  padding: 18px;
   width: 90%;
 
   display: flex;

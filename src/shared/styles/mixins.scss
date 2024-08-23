@@ -49,6 +49,8 @@
     border: 2px solid $base-orange;
     border-radius: 20px;
 
+    margin-left: 10px;
+    width: fit-content;
 }
 
 @mixin sidebar_unit {
@@ -60,6 +62,12 @@
     height: 44px;
 
     color: $White_text_color;
+
+    &:hover {
+        background-color: #1E1E1E;
+    }
+
+    cursor: pointer;
 }
 
 @mixin attachable_text {
@@ -84,4 +92,27 @@
     align-items: center;
 
     background-color: $auth-background-color;
+}
+
+@mixin sidebar_panel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    
+    padding-top: 4rem;
+    padding-inline: 4rem;
+
+    height: 1000px;
+    width: 600px;
+
+    background-color: black;
+
+    border-radius: 50px 0px 0px 0px;
+    border-width: 1px;
+    border-color: $dark-orange;
+    border-style: solid;
+    border-bottom: none;
+    border-right: none;
+
+    color: white;
 }

@@ -9,7 +9,7 @@ export enum RouteConfig {
 }
 
 export const AppRoute = {
-    [RouteConfig.CONTROL]: 'Управление',
+    [RouteConfig.DASHBOARD]: 'Управление',
     [RouteConfig.DOCS]: 'Документация',
     [RouteConfig.HELP]: 'Поддержка',
     [RouteConfig.LOGIN]: 'Вход',

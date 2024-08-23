@@ -23,23 +23,22 @@ const SignupForm = () => {
   const [error, setError] = useState<TErrorMessage | undefined>()
 
   const mutationReg = useMutation({
-      mutationFn: (user: { email: string; password: string; confirmPassword?: string }) => {
+      mutationFn: (user: { email: string; password: string; confirm_password?: string }) => {
           return axios.post(`${BASE_URL}'/api/auth/register`, user);
       },
       onSuccess: (data, variables, context) => {
+        console.log(mutationReg.data)
         sessionStorage.setItem('auhtInfo', mutationReg.data?.data)
         router.push(RouteConfig.DASHBOARD)
       }
   });
-
-  console.log(mutationReg.data)
 
   const onSubmitSignin = (e: any) => {
     e.preventDefault()
     mutationReg.mutate({
       email,
       password,
-      confirmPassword
+      confirm_password: confirmPassword
     })
     setEmail('')
     setPassword('')

@@ -19,8 +19,10 @@ const Logo = ({hideMode}: {hideMode: boolean}) => {
 
   return (
     <div className={styles.sidebar_logo}>
-        <div className={styles.logo_img}>
-          <Image src={'/icons/dashboard/sidebar/logo.svg'} alt='' width={35} height={35} />
+        <div className={styles.logo_img_container}>
+          <div className={styles.logo_hightlihgt}>
+            <Image src={'/icons/dashboard/sidebar/logo.svg'} alt='' width={40} height={40} />
+          </div>
         </div>
         {hideMode && <>
           <span id='logo_text' className={cn(styles.sidebar_text, audiowide.className)}>

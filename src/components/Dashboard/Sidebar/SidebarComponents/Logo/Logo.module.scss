@@ -2,27 +2,35 @@
 @import '@mixins';
 
 .sidebar_logo {
-  padding-inline: 1.5rem;
-  padding-block: 2rem;
+  margin-block: 2rem;
+
+  margin-left: 20px;
 
   display: flex;
-  justify-content: start;
   align-items: center;
+
   gap: 5px;
 }
 
-.logo_img {
-  width: 50px;
-  height: 50px;
+.logo_img_container {
+  width: 60px;
+  height: 60px;
   background-image: radial-gradient(circle at center, rgb(255, 119, 0) 0, transparent 70%);
+}
 
+.logo_hightlihgt {
+  width: 60px;
+  height: 60px;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 }
 
 .sidebar_text {
   @include blurText;
+
+  white-space: nowrap;
+  overflow: hidden;
 
   color: $White_text_color;
   position: relative;

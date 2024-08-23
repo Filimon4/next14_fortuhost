@@ -1,8 +1,8 @@
 import React from 'react'
 
-import styles from "./BoardTitle.module.scss";
+import styles from "./PreviewBoard.module.scss";
 
-const BoardTitle = () => {
+const PreviewBoard = () => {
   return (
     <div className={styles.board_container}>
       <h1 className={styles.board_title}>Мои проекты</h1>
@@ -11,4 +11,4 @@ const BoardTitle = () => {
   )
 }
 
-export default BoardTitle
+export default PreviewBoard

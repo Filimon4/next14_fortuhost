@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import cn from 'classnames'
 
 import styles from './TariffPlan.module.scss'
@@ -6,10 +6,19 @@ import styles from './TariffPlan.module.scss'
 import Image from 'next/image'
 
 import { Audiowide } from 'next/font/google';
+import { SidebarPanelContext } from '@/shared/context/SidebarPanelsContext';
+import { ESidebarButtons } from '@/shared/config/config';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
 const TariffPlan = ({hideMode}: {hideMode: boolean}) => {
+  const {setPanel} = useContext(SidebarPanelContext)
+
+  const onClickChangeTariff = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setPanel(ESidebarButtons.tariff)
+  }  
+
   return (
     <div className={styles.sidebar_tariff}>
       <section className={cn(
@@ -44,7 +53,7 @@ const TariffPlan = ({hideMode}: {hideMode: boolean}) => {
           </>}
         </div>
         {hideMode && <>
-          <a href="" className={styles.tariff_plan}>Изменить тарифный план</a>
+          <a onClick={onClickChangeTariff} className={styles.tariff_plan}>Изменить тарифный план</a>
         </>}
       </section>
     </div>

@@ -2,11 +2,11 @@
 import React, { useRef, useState } from 'react'
 import cn from 'classnames'
 
-import styles from "./BoardProject.module.scss";
+import styles from "./ProjectBoard.module.scss";
 import Image from 'next/image';
 import ProjectModal from '../ProjectModal/ProjectModal';
 
-const BoardProject = () => {
+const ProjectBoard = () => {
   const [hoverProject, setHoverProject] = useState(false)
   const [openCreateProject, setOpenCreateProject] = useState(false)
 
@@ -48,4 +48,4 @@ const BoardProject = () => {
   )
 }
 
-export default BoardProject
+export default ProjectBoard

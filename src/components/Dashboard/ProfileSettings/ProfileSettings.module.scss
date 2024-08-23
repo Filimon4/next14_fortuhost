@@ -1,0 +1,193 @@
+@import '@variables';
+@import '@mixins';
+
+.settings {
+  @include sidebar_panel;
+}
+
+.settings_header {
+  width: 100%;
+  position: relative;
+}
+
+.settings_close {
+  position: absolute;
+  right: -50px;
+  top: 8px;
+  cursor: pointer;
+}
+
+.settings_title {
+  color: $dark-orange;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 40px;
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid $dark-orange;
+}
+
+.settings_container {
+  margin-top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 15px;
+}
+
+.container_title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.notif_form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.notig_telegram {
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid $dark-orange;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 15px;
+}
+
+.telegram_title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.telegram_desc {
+  font-size: 16px;
+}
+
+.telegram_button {
+  padding: 0.5rem 3rem;
+  background-color: $dark-orange;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.notif_checkbox {
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 5px;
+
+  label {
+    color: #707070;
+  }
+
+  input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #707070;
+    border-radius: 5px;
+  }
+
+  input:checked {
+    background-color: rgb(60, 96, 255);
+  }
+
+}
+
+.ref_desc {
+  color: $White_text_color;
+  font-size: 16px;
+}
+
+.ref_form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.form_title {
+  color: #707070;
+}
+
+.ref_cod {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+  input {
+    height: 60px;
+    padding: 12px 20px;
+    border: 3px solid $dark-orange;
+    border-radius: 10px;
+    color: #999595;
+    background-color: black;
+    outline: none;
+    width: 118px;
+    font-weight: 700;
+  }
+}
+
+.ref_link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+  input {
+    height: 60px;
+    padding: 12px 20px;
+    border: 3px solid $dark-orange;
+    border-radius: 10px;
+    color: #999595;
+    background-color: black;
+    outline: none;
+    width: auto;
+    font-weight: 700;
+  }
+}
+
+.token_form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.token_api {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    height: 60px;
+    padding: 12px 20px;
+    border: 3px solid $dark-orange;
+    border-radius: 10px;
+    color: #999595;
+    background-color: black;
+    outline: none;
+    font-weight: 700;
+  }
+}
+
+.token_button {
+  width: 100%;
+  height:60px;
+  background-color: $dark-orange;
+  color: black;
+  border-radius: 10px;
+  font-weight: 700;
+  align-self: end;
+}

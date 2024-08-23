@@ -6,6 +6,7 @@ import { createPortal } from 'react-dom'
 import { BASE_URL, ProjetCreateConfig } from '@/shared/config/config'
 import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
+import ModalRange from '@/shared/ui/ModalRange/ModalRange'
 
 const ProjectModal = ({onClose}: {onClose: () => void}) => {
   const [ramValue, setRamValue] = useState(1)
@@ -48,15 +49,7 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
               <p>{ramValue} {ProjetCreateConfig.field[1].prefix}</p>
               <p></p>
             </div>
-            <input
-              className={styles.form_range}
-              type={ProjetCreateConfig.field[1].type}
-              step={'1'}
-              min={`${ProjetCreateConfig.field[1].min}`}
-              max={`${ProjetCreateConfig.field[1].max}`}
-              onChange={(e) => setRamValue(+e.target.value)}
-              value={ramValue}
-              />
+            <ModalRange value={ramValue} setValue={setRamValue} />
             <div className={styles.range_minmax}>
               <p>{ProjetCreateConfig.field[1].min} {ProjetCreateConfig.field[1].prefix}</p>
               <p>{ProjetCreateConfig.field[1].max} {ProjetCreateConfig.field[1].prefix}</p>
@@ -68,15 +61,7 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
               <p>{ssdValue} {ProjetCreateConfig.field[2].prefix}</p>
               <p></p>
             </div>
-            <input
-              className={styles.form_range}
-              type={ProjetCreateConfig.field[2].type}
-              step={'1'}
-              min={`${ProjetCreateConfig.field[2].min}`}
-              max={`${ProjetCreateConfig.field[2].max}`}
-              onChange={(e) => setSsdValue(+e.target.value)}
-              value={ssdValue}
-              />
+            <ModalRange value={ssdValue} setValue={setSsdValue} />
             <div className={styles.range_minmax}>
               <p>{ProjetCreateConfig.field[2].min} {ProjetCreateConfig.field[2].prefix}</p>
               <p>{ProjetCreateConfig.field[2].max} {ProjetCreateConfig.field[2].prefix}</p>
@@ -88,15 +73,7 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
               <p>{coreValue} {ProjetCreateConfig.field[3].prefix}</p>
               <p></p>
             </div>
-            <input
-              className={styles.form_range}
-              type={ProjetCreateConfig.field[3].type}
-              step={'1'}
-              min={`${ProjetCreateConfig.field[3].min}`}
-              max={`${ProjetCreateConfig.field[3].max}`}
-              onChange={(e) => setCoreValue(+e.target.value)}
-              value={coreValue} 
-              />
+            <ModalRange value={coreValue} setValue={setCoreValue} />
             <div className={styles.range_minmax}>
               <p>{ProjetCreateConfig.field[3].min} {ProjetCreateConfig.field[3].prefix}</p>
               <p>{ProjetCreateConfig.field[3].max} {ProjetCreateConfig.field[3].prefix}</p>

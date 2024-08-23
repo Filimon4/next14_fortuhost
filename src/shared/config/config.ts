@@ -1,5 +1,10 @@
 import { IAboutItem, IInfoCard, ITariffsCard } from '../models/config';
 
+export enum ESidebarButtons {
+    "settings" = "settings",
+    "tariff" = "tariff"
+}
+
 export const AboutConfig = {
     list: [
         {
@@ -106,7 +111,7 @@ export const SidebarConfig = {
         {img: '/icons/dashboard/sidebar/card.svg', imgSize: 24, text: 'Счет', hover: '/icons/dashboard/sidebar/card_light.svg', hoverSize: 32},
     ],
     settings: [
-        {img: '/icons/dashboard/sidebar/settings.svg', imgSize: 24, text: 'Настройки', hover: '/icons/dashboard/sidebar/settings_light.svg', hoverSize: 32},
+        {type: ESidebarButtons.settings, img: '/icons/dashboard/sidebar/settings.svg', imgSize: 24, text: 'Настройки', hover: '/icons/dashboard/sidebar/settings_light.svg', hoverSize: 32},
         {img: '/icons/dashboard/sidebar/chat.svg', imgSize: 24, text: 'Поддержка', hover: '/icons/dashboard/sidebar/chat_light.svg', hoverSize: 32},
         {img: '/icons/dashboard/sidebar/question.svg', imgSize: 24, text: 'FAQ', hover: '/icons/dashboard/sidebar/question_light.svg', hoverSize: 32},
     ]

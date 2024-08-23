@@ -23,12 +23,20 @@ const Profile = ({hideMode}: {hideMode: boolean}) => {
     }
   }, [hideMode])
 
+  useGSAP(() => {
+    if (openProfile == true) {
+      gsap.fromTo("#profile", {height: '50px'} , { height: '170px', delay: 0, duration: 0.05})
+    } else {
+      gsap.to("#profile", {height: 'fit-content'})
+    }
+  }, [openProfile])
+
   return (
     <div className={cn(
       styles.sidebar_profile
     )}
     >
-      <section className={cn(
+      <section id='profile' className={cn(
         styles.profile_hide,
         {[styles.profile_open]: hideMode == true},
         {[styles.profile_options_bottom]: openProfile == true && hideMode == true}
