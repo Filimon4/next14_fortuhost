@@ -1,0 +1,17 @@
+
+.progressBar {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.canvas {
+  transform: rotate(270);
+}
+
+.progressImg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

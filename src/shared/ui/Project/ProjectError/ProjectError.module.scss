@@ -1,0 +1,39 @@
+@import "@variables";
+@import "@mixins";
+
+.project {
+  @include project_unit;
+
+  border-color: #FF0000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project_settings {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.project_title {
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.project_error {
+  padding-block: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project_toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}

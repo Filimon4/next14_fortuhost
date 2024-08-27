@@ -7,8 +7,6 @@ import styles from './InputPassword.module.scss'
 const InputPassword = ({value, setValue, error}: {value: string, setValue: (e: React.ChangeEvent<HTMLInputElement>) => void, error?: boolean}) => {
   const [switchHide, setSwitchHide] = useState<boolean>(true)
 
-  console.log(error)
-
   return (
     <div className={styles.form_input_container}>
       <input

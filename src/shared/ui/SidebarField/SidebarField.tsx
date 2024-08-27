@@ -8,12 +8,10 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 const SidebarField = ({
-  indx,
   field,
   hideMode,
   onClick
 }: {
-  indx: number, 
   field: {img: string, text: string, hover: string, imgSize: number, hoverSize: number},
   hideMode: boolean,
   onClick: () => void
@@ -27,7 +25,7 @@ const SidebarField = ({
   }, [hideMode])
 
   return (
-    <article onClick={onClick} className={cn(styles.sidebar_unit, {[styles.sidebar_unit_open]: hideMode})} key={indx} onMouseEnter={e => setOnHover(true)} onMouseLeave={e => setOnHover(false)}>
+    <article onClick={onClick} className={cn(styles.sidebar_unit, {[styles.sidebar_unit_open]: hideMode})} onMouseEnter={e => setOnHover(true)} onMouseLeave={e => setOnHover(false)}>
         <div className={styles.sidebar_unit_img}>
           <Image src={onHover ? field.hover : field.img} alt='' width={!onHover ? field.imgSize : field.hoverSize} height={!onHover ? field.imgSize : field.hoverSize}/>
         </div>

@@ -6,11 +6,14 @@ import { Audiowide } from 'next/font/google';
 import styles from './Logo.module.scss'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useRouter } from 'next/navigation';
+import { RouteConfig } from '@/shared/config/navigation';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'] });
 
 const Logo = ({hideMode}: {hideMode: boolean}) => {
-  
+  const router = useRouter()
+
   useGSAP(() => {
     if (hideMode == true) {
       gsap.fromTo('#logo_text', {opacity: 0}, {opacity: 1, delay: 0.05, duration: 0.12})

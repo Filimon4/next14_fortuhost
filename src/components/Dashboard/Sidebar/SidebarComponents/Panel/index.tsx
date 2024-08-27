@@ -12,7 +12,7 @@ const Panel = ({hideMode}: {hideMode: boolean}) => {
   return (
     <section className={cn(styles.sidebar_panel, {[styles.sidebar_panel_hide]: hideMode == false})}>
       {SidebarConfig.panel.map((field, indx) => (
-        <SidebarField field={field} hideMode={hideMode} indx={indx} onClick={() => {}} />
+        <SidebarField key={indx} field={field} hideMode={hideMode} onClick={() => {}} />
       ))}
     </section>
   )

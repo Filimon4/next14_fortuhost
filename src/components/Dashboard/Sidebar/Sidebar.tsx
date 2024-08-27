@@ -19,8 +19,6 @@ const Sidebar = () => {
   const sidebarRef = useRef(null);
   const [panel, setPanel] = useState<ESidebarButtons | null>(null)
 
-  console.log(panel)
-
   const currentPanel = useMemo(() => {
     switch (panel) {
       case ESidebarButtons.settings:

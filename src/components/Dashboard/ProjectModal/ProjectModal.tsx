@@ -15,11 +15,15 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
   const [projectName, setProjectName] = useState('')
 
   const mutationCreateProject = useMutation({
-    mutationFn: (project: {projectName: string, ssdValue: number, coreValue: number, ramValue: number}) => {
-      return axios.post(`${BASE_URL}/api/projects`, {project_name: project.projectName})
+    mutationFn: (project: {project_name: string}) => {
+      return axios.post(`${BASE_URL}/projects`, project)
     },
-    onSuccess: () => {
+    onSuccess: (data, variables) => {
+      console.log(data)
       onClose()
+    },
+    onError: (err) => {
+      console.log(err)
     }
   })
 
@@ -30,10 +34,7 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
   const sumibCreateProject = (e: React.FormEvent) => {
     e.preventDefault()
     mutationCreateProject.mutate({
-      projectName,
-      ssdValue,
-      coreValue, 
-      ramValue
+      project_name: projectName,
     })
   }
 

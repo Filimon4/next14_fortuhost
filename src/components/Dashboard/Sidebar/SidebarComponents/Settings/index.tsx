@@ -19,9 +19,9 @@ const Settings = ({hideMode}: {hideMode: boolean}) => {
     <section className={cn(styles.sidebar_settings, {[styles.sidebar_settings_hide]: hideMode == false})}>
       {SidebarConfig.settings.map((field, indx) => {
         if (field.type == ESidebarButtons.settings) {
-          return <SidebarField indx={indx} field={field} hideMode={hideMode} onClick={openSetting} />
+          return <SidebarField key={indx} field={field} hideMode={hideMode} onClick={openSetting} />
         }
-        return <SidebarField indx={indx} field={field} hideMode={hideMode} onClick={() => {}} />
+        return <SidebarField key={indx} field={field} hideMode={hideMode} onClick={() => {}} />
       })}
     </section>
   )

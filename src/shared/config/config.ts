@@ -126,4 +126,4 @@ export const ProjetCreateConfig = {
     ]
 }
 
-export const BASE_URL = 'http://62.183.54.247:8000'
+export const BASE_URL = 'http://62.183.54.247:8000/api'

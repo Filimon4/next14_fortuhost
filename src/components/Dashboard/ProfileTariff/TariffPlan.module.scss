@@ -3,6 +3,7 @@
 
 .tariff {
   @include sidebar_panel;
+  z-index: 100;
 }
 
 .tariff_close {

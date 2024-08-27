@@ -8,8 +8,9 @@ import axios from 'axios'
 import styles from './SigninForm.module.scss'
 
 import { BASE_URL, SignInConfig } from '@/shared/config/config'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import InputPassword from '@/shared/ui/InputPassword/InputPassword'
+import { RouteConfig } from '@/shared/config/navigation'
 
 const SigninForm = () => {
   const router = useRouter()
@@ -18,11 +19,11 @@ const SigninForm = () => {
 
   const mutationLogin = useMutation({
     mutationFn: (user: {email: string, password: string}) => {
-      return axios.post(`${BASE_URL}/api/auth/login`, user)
+      return axios.post(`${BASE_URL}/auth/login`, user)
     },
-    onSuccess: () => {
-      sessionStorage.setItem('authInfo', mutationLogin.data?.data)
-      router.push('/dashbaord')
+    onSuccess: (data, variables) => {
+      sessionStorage.setItem('authInfo', JSON.stringify(data.data.data))
+      router.push(RouteConfig.DASHBOARD)
     }
   })
 

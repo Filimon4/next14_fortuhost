@@ -10,20 +10,24 @@ import axios from 'axios';
 import cn from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import styles from './Register.module.scss';
+import { useRouter } from 'next/navigation';
+import { RouteConfig } from '@/shared/config/navigation';
 
 const Register: FC = () => {
+    const router = useRouter()
+
     const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [checked, setChecked] = useState(false);
     const [error, setError] = useState<TErrorMessage | undefined>();
-    const [isLogin, setIsLogin] = useState(false);
     const mutation = useMutation({
         mutationFn: (user: { email: string; password: string; confirm_password?: string }) => {
-            return axios.post(`${BASE_URL}'/api/auth/'${isLogin ? 'login' : 'register'}`, user);
+            return axios.post(`${BASE_URL}/auth/register}`, user);
         },
-        onSuccess: () => {
-            sessionStorage.setItem('authInfo', mutation.data?.data);
+        onSuccess: (data, variables) => {
+            sessionStorage.setItem('authInfo', JSON.stringify(data.data.data));
+            router.push(RouteConfig.DASHBOARD)
         }
     });
     const { errors, validateInput, getError } = useAuthValidation(
@@ -44,7 +48,7 @@ const Register: FC = () => {
                 <form className={styles.form}>
                     <article className={styles.inputList}>
                         <h2 className={styles.title}>
-                            {isLogin ? 'Логин' : 'Попробуйте бесплатно'}
+                            {'Попробуйте бесплатно'}
                         </h2>
                         <div className={styles.inputBox}>
                             <input
@@ -84,81 +88,64 @@ const Register: FC = () => {
                                 <p className={styles.validText}>{getError('password')}</p>
                             )}
                         </div>
-                        {!isLogin && (
-                            <div className={styles.inputBox}>
-                                <input
-                                    onChange={(e) => {
-                                        setConfirmPassword(e.target.value);
-                                        validateInput('confirmPassword', e.target.value);
-                                        setError(undefined);
-                                    }}
-                                    value={confirmPassword}
-                                    className={cn(styles.input, {
-                                        [styles.invalidInput]: !!getError('confirmPassword'),
-                                    })}
-                                    placeholder="Повторите пароль"
-                                    type="password"
-                                    name="confirm-password"
-                                />
-                                {!!getError('confirmPassword') && (
-                                    <p className={styles.validText}>
-                                        {getError('confirmPassword')}
-                                    </p>
-                                )}
-                            </div>
-                        )}
+                        <div className={styles.inputBox}>
+                            <input
+                                onChange={(e) => {
+                                    setConfirmPassword(e.target.value);
+                                    validateInput('confirmPassword', e.target.value);
+                                    setError(undefined);
+                                }}
+                                value={confirmPassword}
+                                className={cn(styles.input, {
+                                    [styles.invalidInput]: !!getError('confirmPassword'),
+                                })}
+                                placeholder="Повторите пароль"
+                                type="password"
+                                name="confirm-password"
+                            />
+                            {!!getError('confirmPassword') && (
+                                <p className={styles.validText}>
+                                    {getError('confirmPassword')}
+                                </p>
+                            )}
+                        </div>
                         <Button
                             onClick={() => {
-                                mutation.mutate(
-                                    !isLogin
-                                        ? {
-                                              email,
-                                              password,
-                                              confirm_password: confirmPassword,
-                                          }
-                                        : { email, password },
-                                );
+                                mutation.mutate({
+                                    email,
+                                    password,
+                                    confirm_password: confirmPassword,
+                                });
                             }}
                             disabled={
                                 !!errors.length ||
-                                (!checked && !isLogin) ||
+                                !checked ||
                                 mutation.isPending ||
                                 !email ||
                                 !password ||
-                                (!isLogin && !confirmPassword)
+                                !confirmPassword
                             }
                             className={styles.btn}>
-                            {!isLogin ? 'Зарегистрироваться' : 'Войти'}
+                            {'Зарегистрироваться'}
                         </Button>
-                        {!isLogin && (
-                            <div className={styles.checkboxBox}>
-                                <input
-                                    className={styles.checkbox}
-                                    onChange={() => {
-                                        setChecked((prev) => !prev);
-                                    }}
-                                    type="checkbox"
-                                    id="confidency"
-                                />
-                                <label className={styles.checkboxLabel} htmlFor="confidency">
-                                    Я ознакомлен с политикой конфиденциальности и даю согласие
-                                    на обработку персональных данных
-                                </label>
-                            </div>
-                        )}
-                        <p
-                            className={styles.login}
-                            onClick={() => {
-                                setIsLogin((prev) => !prev);
-                            }}>
-                            {!isLogin
-                                ? 'Зарегестрированы? Войти'
-                                : 'Не зарегистрированы? Регистрация'}
-                        </p>
+                        <div className={styles.checkboxBox}>
+                            <input
+                                className={styles.checkbox}
+                                onChange={() => {
+                                    setChecked((prev) => !prev);
+                                }}
+                                type="checkbox"
+                                id="confidency"
+                            />
+                            <label className={styles.checkboxLabel} htmlFor="confidency">
+                                Я ознакомлен с политикой конфиденциальности и даю согласие
+                                на обработку персональных данных
+                            </label>
+                        </div>
                     </article>
                     <article className={styles.description}>
                         <p>
-                            {!isLogin ? 'Зарегестрируйтесь и оцените' : 'Оцените'} удобстово
+                            Зарегестрируйтесь и оцените удобстово
                             использования панели администрирования и полный контроль над вашими
                             проектами, разместив одно приложение совершенно бесплатно
                         </p>

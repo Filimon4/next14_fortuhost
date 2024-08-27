@@ -24,11 +24,10 @@ const SignupForm = () => {
 
   const mutationReg = useMutation({
       mutationFn: (user: { email: string; password: string; confirm_password?: string }) => {
-          return axios.post(`${BASE_URL}'/api/auth/register`, user);
+          return axios.post(`${BASE_URL}/auth/register`, user);
       },
       onSuccess: (data, variables, context) => {
-        console.log(mutationReg.data)
-        sessionStorage.setItem('auhtInfo', mutationReg.data?.data)
+        sessionStorage.setItem('auhtInfo', JSON.stringify(data.data.data))
         router.push(RouteConfig.DASHBOARD)
       }
   });

@@ -1,0 +1,15 @@
+@import "@variables";
+@import "@mixins";
+
+.project {
+  @include project_unit;
+
+  &:hover {
+    border-color: $base-yellow;
+    background-color: rgba($base-yellow, 0.1);
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
