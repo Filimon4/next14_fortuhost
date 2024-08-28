@@ -22,17 +22,17 @@ const SigninForm = () => {
       return axios.post(`${BASE_URL}/auth/login`, user)
     },
     onSuccess: (data, variables) => {
-      sessionStorage.setItem('authInfo', JSON.stringify(data.data.data))
-      router.push(RouteConfig.DASHBOARD)
+      // sessionStorage.setItem('authInfo', JSON.stringify(data.data.data))
     }
   })
 
   const onSubmitSignin = (e: any) => {
     e.preventDefault()
-    mutationLogin.mutate({
-      email,
-      password
-    })
+    axios.post(`${BASE_URL}/auth/login`, {email, password})
+    // mutationLogin.mutate({
+    //   email,
+    //   password
+    // })
   }
 
   return (

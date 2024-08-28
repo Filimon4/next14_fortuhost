@@ -5,9 +5,9 @@ import cn from 'classnames'
 import styles from "./ProjectBoard.module.scss";
 import Image from 'next/image';
 import ProjectModal from '../ProjectModal/ProjectModal';
-import ProjectRunning from '@/shared/ui/Project/ProjectRunning';
-import ProjectError from '@/shared/ui/Project/ProjectError';
-import ProjectAdd from '@/shared/ui/Project/ProjectAdd';
+import ProjectRunning from '@/shared/ui/Dashboard/ProjectRunning';
+import ProjectError from '@/shared/ui/Dashboard/ProjectError';
+import ProjectAdd from '@/shared/ui/Dashboard/ProjectAdd';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { BASE_URL } from '@/shared/config/config';
 import axios from 'axios';
