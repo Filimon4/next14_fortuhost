@@ -12,10 +12,13 @@ const Footer: FC = () => {
             <section id="info" className={s.info}>
                 <Logo to="/" />
                 <p>
-                    ООО «Фортухост»
+                    ООО "ФОРТУПРОДЖЕКТ"
                     <br />
                     ИНН 2372032969
-                    <br /> ОГРН 1232300063379
+                    <br />
+                    КПП 237201001
+                    <br />
+                    КПП 1232300063379
                 </p>
             </section>
             <section className={s.navigation} id="navigation">
