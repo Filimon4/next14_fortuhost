@@ -7,6 +7,7 @@ import s from './Footer.module.scss';
 import { AppRoute } from '@/shared/config/navigation';
 
 const Footer: FC = () => {
+    
     return (
         <footer className={s.footer}>
             <section id="info" className={s.info}>
