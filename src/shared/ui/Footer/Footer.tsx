@@ -7,13 +7,13 @@ import s from './Footer.module.scss';
 import { AppRoute } from '@/shared/config/navigation';
 
 const Footer: FC = () => {
-    
+
     return (
         <footer className={s.footer}>
             <section id="info" className={s.info}>
                 <Logo to="/" />
                 <p>
-                    ООО "ФОРТУПРОДЖЕКТ"
+                    ООО &#34;ФОРТУПРОДЖЕКТ&#34;
                     <br />
                     ИНН 2372032969
                     <br />
