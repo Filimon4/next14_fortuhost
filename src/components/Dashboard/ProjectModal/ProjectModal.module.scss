@@ -4,8 +4,9 @@
   $modal_width: 28rem;
   $modal_height: 40rem;
   position: absolute;
-  top: calc(50% - $modal_height/2);
-  left: calc(50% - $modal_width/2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   width: $modal_width;
   height: $modal_height;

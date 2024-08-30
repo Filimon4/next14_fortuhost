@@ -19,12 +19,8 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
       return axios.post(`${BASE_URL}/projects`, project)
     },
     onSuccess: (data, variables) => {
-      console.log(data)
       onClose()
     },
-    onError: (err) => {
-      console.log(err)
-    }
   })
 
   const refModal = useOutsideClick(() => {

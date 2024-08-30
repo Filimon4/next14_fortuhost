@@ -126,4 +126,79 @@ export const ProjetCreateConfig = {
     ]
 }
 
+export enum EInstanceTypes {
+    'setup',
+    'github',
+    'nginx',
+    'docker',
+    'mysql',
+    'redis'
+}
+
+export type IInstanceConfig = {
+    [K in keyof typeof EInstanceTypes]: any;
+};
+
+export const InstancesSetupConfig = [
+    {
+        img: '/icons/instance/github_icon.svg',
+        title: 'GitHub репозиторий',
+        type: EInstanceTypes.github,
+    },
+    {
+        img: '/icons/instance/nginx_icon.svg',
+        title: 'Nginx сервер',
+        type: EInstanceTypes.nginx,
+    },
+    {
+        img: '/icons/instance/docker_icon.svg',
+        title: 'Docker образ',
+        type: EInstanceTypes.docker,
+    },
+    {
+        img: '/icons/instance/mysql_icon.svg',
+        title: 'MySQL база данных',
+        type: EInstanceTypes.mysql,
+    },
+    {
+        img: '/icons/instance/redis_icon.svg',
+        title: 'Redis база данных',
+        type: EInstanceTypes.redis,
+    },
+]
+
+export const InstancesConfig = {
+    [EInstanceTypes.docker]: [],
+    [EInstanceTypes.mysql]: [
+        {
+            type: 'text',
+            placeholder: 'Имя',
+        },
+        {
+            type: 'text',
+            placeholder: 'Логин',
+        },
+        {
+            type: 'password',
+            placeholder: 'Пароль',
+        },
+        {
+            type: 'text',
+            placeholder: 'Порт',
+        },
+        {
+            type: 'select',
+            options: [
+                {
+                    value: 'test',
+                    text: 'text'
+                }
+            ],
+        }
+    ],
+    [EInstanceTypes.github]: [],
+    [EInstanceTypes.nginx]: [],
+    [EInstanceTypes.redis]: [],
+}
+
 export const BASE_URL = 'http://62.183.54.247:8000/api'

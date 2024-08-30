@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
 import axios from 'axios'
 
 import styles from './SigninForm.module.scss'
@@ -22,17 +21,19 @@ const SigninForm = () => {
       return axios.post(`${BASE_URL}/auth/login`, user)
     },
     onSuccess: (data, variables) => {
-      // sessionStorage.setItem('authInfo', JSON.stringify(data.data.data))
+      sessionStorage.setItem('authInfo', JSON.stringify(data.data.data))
+      router.push(RouteConfig.DASHBOARD)
     }
   })
 
   const onSubmitSignin = (e: any) => {
     e.preventDefault()
-    axios.post(`${BASE_URL}/auth/login`, {email, password})
-    // mutationLogin.mutate({
-    //   email,
-    //   password
-    // })
+    setEmail('')
+    setPassword('')
+    mutationLogin.mutate({
+      email,
+      password
+    })
   }
 
   return (

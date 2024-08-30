@@ -1,0 +1,44 @@
+@import '@variables';
+
+.instanceModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 2px solid $dark-orange;
+  border-radius: 20px;
+
+  padding-block: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  
+  h1 {
+    color: $White_text_color;
+    align-self: center;
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 10px;
+  }
+}
+
+.instance {
+  width: 100%;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1E1E1E;
+  }
+
+  p {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 14px;
+    color: white;
+  }
+}

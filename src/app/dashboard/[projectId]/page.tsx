@@ -10,9 +10,9 @@ const Project = () => {
   const router = useParams()
 
   return (
-    <section className={styles.current_project}>
+    <div className={styles.current_project}>
       <ProjectHeader />
-    </section>
+    </div>
   )
 }
 
