@@ -14,8 +14,8 @@ const Footer: FC = () => {
                 <p>
                     ООО «Фортухост»
                     <br />
-                    ИНН 7814565595
-                    <br /> ОГРН 1137847098630
+                    ИНН 2372032969
+                    <br /> ОГРН 1232300063379
                 </p>
             </section>
             <section className={s.navigation} id="navigation">
