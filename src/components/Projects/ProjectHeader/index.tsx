@@ -7,9 +7,10 @@ import styles from './ProjectHeader.module.scss'
 import ProjectHeaderButton from '@/shared/ui/Project/ProjectHeaderButton'
 import ProjectInstanceModal from '@/shared/ui/Project/ProjectInstanceModal'
 import { EInstanceTypes } from '@/shared/config/config'
+import ProjectMysqlModal from '@/shared/ui/Project/ProjectMysqlModal'
 
 const ProjectHeader = () => {
-  const [openCreateInstance, setOpenCreateInstance] = useState<EInstanceTypes | null>(EInstanceTypes.setup)
+  const [openCreateInstance, setOpenCreateInstance] = useState<EInstanceTypes | null>(null)
 
   const closeCreateInstance = () => {
     setOpenCreateInstance(null)
@@ -19,7 +20,11 @@ const ProjectHeader = () => {
     setOpenCreateInstance(t)
   }
 
-  const addInstance = (e: React.MouseEvent) => {
+  const addInstance = (e: EInstanceTypes) => [
+
+  ]
+
+  const chooseInstance = (e: React.MouseEvent) => {
     setOpenCreateInstance(EInstanceTypes.setup)
   }
 
@@ -36,7 +41,7 @@ const ProjectHeader = () => {
       case (EInstanceTypes.docker):
         return <></>;
       case (EInstanceTypes.mysql):
-        return <></>;
+        return <ProjectMysqlModal onClose={closeCreateInstance} onAccept={addInstance}/>
       case (EInstanceTypes.nginx):
         return <></>;
       case (EInstanceTypes.redis):
@@ -57,7 +62,7 @@ const ProjectHeader = () => {
           <Image src={'/icons/dashboard/project/project_restart_disabled.svg'} alt={''} width={40} height={40}/>
         </div>
         <div className={styles.header_create}>
-          <ProjectHeaderButton onClick={addInstance} text={'Добавить'} imgSize={24} img={'/icons/dashboard/add.svg'} hoverImgSize={29} hoverImg={'/icons/dashboard/add_light.svg'} />
+          <ProjectHeaderButton onClick={chooseInstance} text={'Добавить'} imgSize={24} img={'/icons/dashboard/add.svg'} hoverImgSize={29} hoverImg={'/icons/dashboard/add_light.svg'} />
           <ProjectHeaderButton onClick={openSettings} text={'Настройка'} imgSize={24} img={'/icons/dashboard/sidebar/settings.svg'} hoverImgSize={33} hoverImg={'/icons/dashboard/sidebar/settings_light.svg'} />
         </div>
       </div>  

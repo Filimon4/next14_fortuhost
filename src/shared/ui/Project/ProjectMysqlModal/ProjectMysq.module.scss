@@ -1,0 +1,50 @@
+@import '@variables';
+@import '@mixins';
+
+.mysql {
+  @include project_modal();
+  padding-inline: 40px;
+  padding-block: 40px;
+  width: 500px;
+
+  & > h1 {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    gap: 10px;
+  }
+}
+
+.mysql_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding-block: 20px;
+}
+
+.mysql_form_container {
+  width: 100%;
+}
+
+.mysql_from_unit {
+  width: 100%;
+  background: transparent;
+  padding: 10px 20px;
+  border: 3px solid $dark-orange;
+  border-radius: 10px;
+  color: white;
+  outline: none;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mysql_button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: $base-yellow;
+  font-weight: 700;
+}

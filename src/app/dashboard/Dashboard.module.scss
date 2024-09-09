@@ -5,6 +5,8 @@
   width: 100vw;
   background: url('/icons/dashboard-bee-frame.png') center center no-repeat;
   background-color: $dashboard-background-color;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .dashboard_projects {

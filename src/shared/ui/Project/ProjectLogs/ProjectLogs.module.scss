@@ -1,0 +1,74 @@
+@import '@variables';
+
+.project_logs {
+  color: white;
+  
+  position: absolute;
+  right:0px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s;
+
+  height: 85%;
+  width: 85%;
+  background-color: black;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 2px solid $base-orange;
+  border-right: none;
+  z-index: 100;
+}
+
+.project_logs_close {
+  transform: translateY(-50%) translateX(101%);
+  right:17px;
+}
+
+.project_container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+} 
+
+.project_console {
+  width: 100%;
+  height: 100%;
+  border: 1px solid $base-orange;  
+}
+
+.project_area {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  background-color: transparent;
+  border: none;
+  color: $base-orange;
+  font-size: 16px;
+  line-height: 24px;
+  outline: none;
+}
+
+.project_button {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-63%, -50%) rotate(0deg);
+  
+  p {
+    width: 121px;
+    font-size: 16px;
+    line-height: 24px;
+    transform: rotate(270deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 2px solid $base-orange;
+    border-bottom: none;
+    color: $base-orange;
+    padding: 3px 7px 0 7px;
+  }
+}

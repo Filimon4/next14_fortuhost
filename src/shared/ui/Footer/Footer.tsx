@@ -19,7 +19,7 @@ const Footer: FC = () => {
                     <br />
                     КПП 237201001
                     <br />
-                    КПП 1232300063379
+                    ОГРН 1232300063379
                 </p>
             </section>
             <section className={s.navigation} id="navigation">

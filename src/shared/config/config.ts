@@ -135,6 +135,14 @@ export enum EInstanceTypes {
     'redis'
 }
 
+export const InstanceIcon = {
+    [EInstanceTypes.mysql]: "/icons/instance/mysql_icon.svg",
+    [EInstanceTypes.nginx]: "/nginx/instance/nginx_icon.svg",
+    [EInstanceTypes.docker]: "/nginx/instance/docker_icon.svg",
+    [EInstanceTypes.github]: "/nginx/instance/github_icon.svg",
+    [EInstanceTypes.redis]: "/nginx/instance/redis_icon.svg",
+}
+
 export type IInstanceConfig = {
     [K in keyof typeof EInstanceTypes]: any;
 };
@@ -192,7 +200,7 @@ export const InstancesConfig = {
                 {
                     value: 'test',
                     text: 'text'
-                }
+                },
             ],
         }
     ],
@@ -200,5 +208,7 @@ export const InstancesConfig = {
     [EInstanceTypes.nginx]: [],
     [EInstanceTypes.redis]: [],
 }
+
+
 
 export const BASE_URL = 'http://62.183.54.247:8000/api'
