@@ -13,6 +13,7 @@ import { SidebarPanelProvider } from '@/shared/context/SidebarPanelsContext';
 import { ESidebarButtons } from '@/shared/config/config';
 import ProfileSettings from '../ProfileSettings';
 import ProfileTariff from '../ProfileTariff';
+import ProfileUser from '../ProfileUser';
 
 const Sidebar = () => {
   const [sidebarHover, setSidebarHover] = useState(false);
@@ -25,6 +26,8 @@ const Sidebar = () => {
         return <ProfileSettings />
       case ESidebarButtons.tariff:
         return <ProfileTariff />
+      case ESidebarButtons.profile:
+        return <ProfileUser />
       default:
         return <></>
     }

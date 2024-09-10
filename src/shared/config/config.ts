@@ -1,8 +1,9 @@
 import { IAboutItem, IInfoCard, ITariffsCard } from '../models/config';
 
 export enum ESidebarButtons {
-    "settings" = "settings",
-    "tariff" = "tariff"
+    "settings",
+    "tariff",
+    "profile"
 }
 
 export const AboutConfig = {

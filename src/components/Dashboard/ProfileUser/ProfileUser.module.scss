@@ -1,0 +1,78 @@
+@import '@variables';
+@import '@mixins';
+
+@mixin form_field {
+  width: 100%;
+  padding: 6px 20px;
+  background-color: transparent;
+  border: 3px solid $dark-orange;
+  border-radius: 10px;
+  font-weight: 700;
+  color: white;
+  outline: none;
+}
+
+.profile {
+  @include sidebar_panel(900px);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  z-index: 1000;
+}
+
+.profile_title {
+  color: $dark-orange;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 40px;
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid $dark-orange;
+}
+
+.profile_header {
+  width: 100%;
+  position: relative;
+}
+
+.profile_user {
+  padding-top: 50px;
+  display: flex;
+  justify-content: start;
+
+  img {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    justify-self: center;
+    position: relative;
+  }
+}
+
+.profile_close {
+  position: absolute;
+  right: -50px;
+  top: 8px;
+  cursor: pointer;
+}
+
+.profile_password, .profile_email, .profile_name {
+  label {
+    font-size: 16px;
+    color: $auht-text;
+  }
+}
+
+.profile_email, .profile_name {
+  padding-bottom: 15px;
+  input {
+    @include form_field();
+  }
+}
+
+.profile_submit {
+  margin-top: 50px;
+  color: black;
+  background-color: $base-orange;
+  border-radius: 10px;
+  padding: 10px 65px;
+  font-weight: 700;
+}

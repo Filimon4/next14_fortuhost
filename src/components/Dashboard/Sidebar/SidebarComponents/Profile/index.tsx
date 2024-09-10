@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import cn from 'classnames';
 
 import Image from 'next/image';
@@ -9,12 +9,14 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { BASE_URL } from '@/shared/config/config';
+import { BASE_URL, ESidebarButtons } from '@/shared/config/config';
 import { useRouter } from 'next/navigation';
 import { RouteConfig } from '@/shared/config/navigation';
 import { IUser } from '@/shared/models/config';
+import { SidebarPanelContext } from '@/shared/context/SidebarPanelsContext';
 
 const Profile = ({hideMode}: {hideMode: boolean}) => {
+  const {setPanel} = useContext(SidebarPanelContext)
   const router = useRouter()
   const [openProfile, setOpenProfile] = useState<boolean>(false)
   const [user, setUser] = useState<IUser>({
@@ -26,7 +28,7 @@ const Profile = ({hideMode}: {hideMode: boolean}) => {
   
   useLayoutEffect(() => {
     if (window) {
-      if (sessionStorage) {
+      if (sessionStorage.getItem('authInfo')) {
         setUser(JSON.parse(String(sessionStorage.getItem('authInfo'))) as IUser)
       }
     }
@@ -104,7 +106,7 @@ const Profile = ({hideMode}: {hideMode: boolean}) => {
         </div>
         {openProfile && hideMode == true && <>
           <div className={styles.prfile_options}>
-            <article>
+            <article onClick={e => setPanel(ESidebarButtons.profile)}>
               <Image src={'/icons/dashboard/sidebar/profile/person.svg'} alt='' width={18} height={18} />
               <p>Личные настройки</p> 
             </article>

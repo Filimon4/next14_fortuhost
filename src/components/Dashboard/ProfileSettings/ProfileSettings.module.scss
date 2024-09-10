@@ -3,6 +3,9 @@
 
 .settings {
   @include sidebar_panel;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  z-index: 100;
 }
 
 .settings_header {

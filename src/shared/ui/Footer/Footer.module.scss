@@ -47,7 +47,6 @@
 }
 
 .navigation {
-    margin-left: auto;
     transform: translateX(-50%);
 }
 
@@ -99,7 +98,6 @@
     }
 
     @media screen and (min-width: $tablet-width) {
-        margin-left: auto;
         gap: 20px;
     }
 }
@@ -117,5 +115,19 @@
 
     @media screen and (min-width: $tablet-width) {
         text-align: start;
+    }
+}
+
+.sponsor {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+
+    & > p {
+        font-size: 30px;
+        line-height: 35px;
     }
 }

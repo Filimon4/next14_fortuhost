@@ -7,7 +7,8 @@ import cn from 'classnames'
 
 export enum EProjectInstanceType {
   'running',
-  'loading'
+  'loading',
+  'error'
 }
 
 const projectInstances = [
@@ -19,7 +20,7 @@ const projectInstances = [
   {
     type: EInstanceTypes.mysql,
     name: "test",
-    instance: EProjectInstanceType.running 
+    instance: EProjectInstanceType.loading 
   },
   {
     type: EInstanceTypes.mysql,
@@ -82,7 +83,6 @@ const ProjectInstances = () => {
 
   return (
     <article className={cn(styles.instances, {[styles.instances_block]: projectInstances.length>9})}>
-      
       {projectInstances.map((obj, indx) => {
         if (obj.instance == EProjectInstanceType.running) {
           return <InstanceRunning key={indx} instanceName={obj.name} instanceType={obj.type} />
