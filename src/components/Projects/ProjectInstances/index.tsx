@@ -4,6 +4,7 @@ import React from 'react'
 
 import styles from './Projectinstances.module.scss'
 import cn from 'classnames'
+import InstanceLoading from '@/shared/ui/Project/InstanceLoading'
 
 export enum EProjectInstanceType {
   'running',
@@ -20,75 +21,35 @@ const projectInstances = [
   {
     type: EInstanceTypes.mysql,
     name: "test",
-    instance: EProjectInstanceType.loading 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
     instance: EProjectInstanceType.running 
   },
   {
     type: EInstanceTypes.mysql,
     name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
-  },
-  {
-    type: EInstanceTypes.mysql,
-    name: "test",
-    instance: EProjectInstanceType.running 
+    instance: EProjectInstanceType.error 
   },
 ]
 
 const ProjectInstances = () => { 
 
   return (
-    <article className={cn(styles.instances, {[styles.instances_block]: projectInstances.length>9})}>
-      {projectInstances.map((obj, indx) => {
-        if (obj.instance == EProjectInstanceType.running) {
-          return <InstanceRunning key={indx} instanceName={obj.name} instanceType={obj.type} />
-        }
-      })}
-    </article>
+    <div className=''>
+      <article className={cn(styles.instances, {[styles.instances_loaded]: projectInstances.length>9})}>
+        {projectInstances.map((obj, indx) => {
+          switch (obj.instance) {
+            case EProjectInstanceType.running: {
+              return <InstanceRunning key={indx} instanceName={obj.name} instanceType={obj.type} />
+            }
+            case EProjectInstanceType.loading: {
+              return <InstanceLoading key={indx} instanceName={obj.name} instanceType={obj.type} />
+            }
+            case EProjectInstanceType.error: {
+              return <InstanceRunning key={indx} instanceName={obj.name} instanceType={obj.type} />
+            }
+          } 
+        })}
+      </article>
+    </div>
   )
 }
 

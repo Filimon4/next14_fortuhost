@@ -37,6 +37,8 @@ const ProjectBoard = () => {
     refetchOnMount: false
   })
 
+  console.log(queryGetProjects.data)
+
   const addProject = () => {
     setOpenCreateProject(true)
   }

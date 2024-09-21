@@ -29,6 +29,7 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
 
   const sumibCreateProject = (e: React.FormEvent) => {
     e.preventDefault()
+    console.log(projectName)
     mutationCreateProject.mutate({
       project_name: projectName,
     })

@@ -212,4 +212,4 @@ export const InstancesConfig = {
 
 
 
-export const BASE_URL = 'http://62.183.54.247:8000/api'
+export const BASE_URL = 'https://fortuhost.ru/api'

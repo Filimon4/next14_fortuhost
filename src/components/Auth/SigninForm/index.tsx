@@ -15,25 +15,34 @@ const SigninForm = () => {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
 
   const mutationLogin = useMutation({
     mutationFn: (user: {email: string, password: string}) => {
       return axios.post(`${BASE_URL}/auth/login`, user)
     },
     onSuccess: (data, variables) => {
-      sessionStorage.setItem('authInfo', JSON.stringify(data.data.data))
-      router.push(RouteConfig.DASHBOARD)
+      console.log(data)
+      const dataFetch = data.data
+      if (dataFetch.status == 'error') {
+        setError(dataFetch.error)
+      }
+      if (dataFetch.status == 'OK') {
+        sessionStorage.setItem('authInfo', JSON.stringify(dataFetch.data))
+        router.push(RouteConfig.DASHBOARD)
+      }
     }
   })
 
   const onSubmitSignin = (e: any) => {
     e.preventDefault()
-    setEmail('')
-    setPassword('')
     mutationLogin.mutate({
       email,
       password
     })
+    setEmail('')
+    setPassword('')
+    setError(null)
   }
 
   return (
@@ -46,6 +55,9 @@ const SigninForm = () => {
         <label>Password</label>
         <InputPassword value={password} setValue={(e) => {setPassword(e.target.value)}} />
       </div>
+      {error && <>
+        <p className={styles.error}>{error}</p>
+      </>}
       <button className={styles.form_submit}>Войти</button>
     </form>
   )
