@@ -11,7 +11,7 @@ interface ICard {
 const Card: FC<PropsWithChildren<ICard>> = ({ image, children, className }) => {
     return (
         <article className={cn(styles.card, className)}>
-            <Image alt="card-image" src={image} />
+            <Image alt="card-image" src={image} width={129} height={129} />
             {children}
         </article>
     );

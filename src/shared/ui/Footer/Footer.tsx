@@ -55,8 +55,8 @@ const Footer: FC = () => {
             </section>
             <section id="links" className={s.sponsor}>
                 {/* <p>При поддержке</p> */}
-                <Image src='/icons/fond_rf.png' alt='Что нибудь' height={112} width={220} />
             </section>
+                <Image src='/icons/fond_rf.png' alt='Что нибудь' height={112} width={220} />
         </footer>
     );
 };
