@@ -23,6 +23,6 @@
             "@mixins": ["./src/shared/styles/mixins.scss"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "declare.d.ts"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "declare.d.ts", "imgLoader.js"],
     "exclude": ["node_modules"]
 }
