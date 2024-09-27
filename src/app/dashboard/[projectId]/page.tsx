@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 
 import styles from './ProjectId.module.scss'
@@ -9,7 +8,7 @@ import ProjectLogs from '@/shared/ui/Project/ProjectLogs'
 const Project = () => {
   return (
     <>
-      <ProjectLogs />  
+      <ProjectLogs />
       <section className={styles.current_project}>
         <section className={styles.project_header}>
           <ProjectHeader />

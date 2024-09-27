@@ -16,7 +16,7 @@ const ProjectLogs = () => {
 
   useEffect(() => {
     setIsClient(true)
-  })
+  }, [])
 
   if (!isClient) return <></>
 

@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
+import Image from 'next/image';
 import styles from './Card.module.scss';
 import cn from 'classnames';
 
@@ -10,7 +11,7 @@ interface ICard {
 const Card: FC<PropsWithChildren<ICard>> = ({ image, children, className }) => {
     return (
         <article className={cn(styles.card, className)}>
-            <img alt="card-image" src={image} />
+            <Image alt="card-image" src={image} />
             {children}
         </article>
     );

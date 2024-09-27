@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 
 import styles from './InstanceLoading.module.scss'
@@ -12,10 +12,6 @@ const InstanceLoading = ({
   instanceType: EInstanceTypes,
   instanceName: string
 }) => {
-
-  useEffect(() => {
-
-  }, [])
 
   return (
     <div className={styles.project}>
