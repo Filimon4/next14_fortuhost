@@ -54,7 +54,7 @@ const Footer: FC = () => {
                 </a>
             </section>
             <section id="links" className={s.sponsor}>
-                <p>При поддержке</p>
+                {/* <p>При поддержке</p> */}
                 <Image src='/icons/fond_rf.png' alt='Что нибудь' height={112} width={220} />
             </section>
         </footer>
