@@ -1,14 +1,14 @@
 'use client'
 import React from 'react'
 
-import styles from './ProjectId.module.scss'
+import styles from './Project.module.scss'
 import ProjectHeader from '@/components/Projects/ProjectHeader'
 import ProjectInstances from '@/components/Projects/ProjectInstances'
 import ProjectLogs from '@/shared/ui/Project/ProjectLogs'
 import { useSearchParams } from 'next/navigation'
 
 const Project = () => {
-  const params = useSearchParams()
+  // const params = useSearchParams()
   return (
     <>
       <ProjectLogs />
