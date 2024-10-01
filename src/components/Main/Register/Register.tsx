@@ -23,7 +23,7 @@ const Register: FC = () => {
     const [error, setError] = useState<TErrorMessage | undefined>();
     const mutation = useMutation({
         mutationFn: (user: { email: string; password: string; confirm_password?: string }) => {
-            return axios.post(`${BASE_URL}/auth/register}`, user);
+            return axios.post(`${BASE_URL}/auth/register`, user);
         },
         onSuccess: (data, variables) => {
             sessionStorage.setItem('authInfo', JSON.stringify(data.data.data));
