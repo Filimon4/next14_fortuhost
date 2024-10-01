@@ -27,7 +27,7 @@ const SignupForm = () => {
           return axios.post(`${BASE_URL}/auth/register`, user);
       },
       onSuccess: (data, variables, context) => {
-        sessionStorage.setItem('auhtInfo', JSON.stringify(data.data.data))
+        sessionStorage.setItem('authInfo', JSON.stringify(data.data.data))
         router.push(RouteConfig.DASHBOARD)
       }
   });
