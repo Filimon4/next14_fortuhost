@@ -34,6 +34,7 @@ const SignupForm = () => {
 
   const onSubmitSignin = (e: any) => {
     e.preventDefault()
+    axios.get(`${BASE_URL}}/auth/logout`)
     mutationReg.mutate({
       email,
       password,
