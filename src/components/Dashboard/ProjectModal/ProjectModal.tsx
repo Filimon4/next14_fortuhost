@@ -16,7 +16,11 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
 
   const mutationCreateProject = useMutation({
     mutationFn: (project: {project_name: string}) => {
-      return axios.post(`${BASE_URL}/projects`, project)
+      return axios.post(`${BASE_URL}/projects`, project, {
+        headers: {
+          'CSRF': document.cookie.split("; ").filter(value => value.startsWith('csrftoken'))[0].split('=')[1]
+        }
+      })
     },
     onSuccess: (data, variables) => {
       onClose()

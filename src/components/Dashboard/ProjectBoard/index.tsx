@@ -12,32 +12,22 @@ import { useQuery } from '@tanstack/react-query';
 import { BASE_URL } from '@/shared/config/config';
 import axios from 'axios';
 
-const mockProject = [
-  {
-    type: 'running',
-    name: 'text'
-  },
-  {
-    type: 'error',
-    name: 'text'
-  },
-]
-
 const ProjectBoard = () => {
   const [hoverProject, setHoverProject] = useState(false)
   const [openCreateProject, setOpenCreateProject] = useState(false)
+  const [projects, setProjects] = useState([])
   
   const queryGetProjects = useQuery({
     queryKey: ['projects'],
     queryFn: () => {
       return axios.get(`${BASE_URL}/projects`)
     },
-    enabled: false,
+    enabled: true,
     refetchOnWindowFocus: false,
-    refetchOnMount: false
+    refetchOnMount: false,
   })
 
-  console.log(queryGetProjects.data)
+  console.log(queryGetProjects)
 
   const addProject = () => {
     setOpenCreateProject(true)
@@ -45,16 +35,17 @@ const ProjectBoard = () => {
 
   return (
     <>
-    {mockProject.length > 0 ? <>
+    {projects.length > 0 ? <>
       <div className={styles.project_grid}>
-        {mockProject.map((project, idx) => (
+        {projects.map((project, idx) => (
           <div key={idx}>
-            {project.type == 'running' && <>
-              <ProjectRunning name={project.name} />
-            </>}
-            {project.type == 'error' && <>
-              <ProjectError name={project.name} />
-            </>}
+            <ProjectRunning name={project} />
+            {/* {project.type == 'running' && <>
+              <ProjectRunning name={project} />
+            </>} */}
+            {/* {project.type == 'error' && <>
+              <ProjectError name={project} />
+            </>} */}
           </div>
         ))}
         <ProjectAdd onAdd={addProject} />
