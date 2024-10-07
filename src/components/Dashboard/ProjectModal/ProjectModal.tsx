@@ -18,7 +18,7 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
     mutationFn: (project: {project_name: string}) => {
       return axios.post(`${BASE_URL}/projects`, project, {
         headers: {
-          'CSRF': document.cookie.split("; ").filter(value => value.startsWith('csrftoken'))[0].split('=')[1]
+          'csrftoken': document.cookie.split("; ").filter(value => value.startsWith('csrftoken'))[0].split('=')[1]
         }
       })
     },
