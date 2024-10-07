@@ -14,6 +14,8 @@ const ProjectModal = ({onClose}: {onClose: () => void}) => {
   const [coreValue, setCoreValue] = useState(1)
   const [projectName, setProjectName] = useState('')
 
+  console.log(document.cookie.split("; ").filter(value => value.startsWith('csrftoken'))[0].split('=')[1])
+
   const mutationCreateProject = useMutation({
     mutationFn: (project: {project_name: string}) => {
       return axios.post(`${BASE_URL}/projects`, project, {

@@ -22,7 +22,6 @@ const SigninForm = () => {
       return axios.post(`${BASE_URL}/auth/login`, user)
     },
     onSuccess: (data, variables) => {
-      console.log(data)
       const dataFetch = data.data
       if (dataFetch.status == 'error') {
         setError(dataFetch.error)
